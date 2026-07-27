@@ -18,7 +18,7 @@ type Reference = {
   visual?: VisualReference;
   kind?: "pre-laudo" | "alteração";
 };
-type Draft = { id: string; title: string; region: string; description: string; impression: string; comment: string };
+type Draft = { id: string; title: string; region: string; fullText: string };
 
 const cranioPreLaudo = `- Calota craniana sem alterações radiográficas dignas de nota;\n- Cavidades nasais, seios frontais e osso vômer com adequada visibilização do padrão trabecular de conchas nasais e etmoturbinados;\n- Corpos mandibulares e ramos maxilares sem evidências radiográficas de alterações;\n- Arcos zigomáticos preservados;\n- Articulações temporomandibulares congruentes e coaptadas;\n- Bulas timpânicas e condutos auditivos preservados;\n- Dentes e alvéolos dentários habituais;\n- Demais estruturas passíveis de avaliação sem evidências radiográficas sugestivas de alterações pelas incidências realizadas.`;
 
@@ -121,6 +121,17 @@ function completeDescription(item: Reference) {
     .filter((line) => !line.avoid.some((term) => title.includes(term)))
     .map((line) => `- ${line.text}`);
   return [`- ${main}.`, ...normalLines, "- Demais estruturas passíveis de avaliação sem alterações radiográficas dignas de nota."].join("\n");
+}
+
+function fullModelText(item: Reference) {
+  return `RELATÓRIO RADIOGRÁFICO
+${completeDescription(item)}
+
+IMPRESSÕES DIAGNÓSTICAS
+- ${item.impression}
+
+COMENTÁRIOS
+- ${recommendedComment(item)}`;
 }
 
 const clinicalDetails: Record<string, Partial<Reference>> = {
@@ -230,9 +241,7 @@ export default function Home() {
   const [region, setRegion] = useState("Todos");
   const [search, setSearch] = useState("");
   const [active, setActive] = useState<Reference | null>(null);
-  const [description, setDescription] = useState("");
-  const [impression, setImpression] = useState("");
-  const [comment, setComment] = useState("");
+  const [fullText, setFullText] = useState("");
   const [drafts, setDrafts] = useState<Draft[]>([]);
   const [copied, setCopied] = useState(false);
 
@@ -240,14 +249,21 @@ export default function Home() {
     const text = `${item.title} ${item.region} ${item.model}`.toLowerCase();
     return (region === "Todos" || item.region === region) && text.includes(search.toLowerCase());
   }), [region, search]);
-  const output = `RELATÓRIO RADIOGRÁFICO\n${drafts.length ? drafts.map((draft) => draft.description.trim()).join("\n\n") : "- [Adicione um modelo da biblioteca]"}\n\nIMPRESSÕES DIAGNÓSTICAS\n${drafts.length ? drafts.map((draft) => `- ${draft.impression.trim()}`).join("\n") : "- [Adicione uma impressão diagnóstica]"}\n\nCOMENTÁRIOS\n${drafts.length ? drafts.map((draft) => `- ${draft.comment.trim() || "Sem comentários adicionais."}`).join("\n") : "- [Adicione um modelo para receber a recomendação correspondente]"}`;
+  const output = drafts.length ? drafts.map((draft) => draft.fullText.trim()).join("\n\n") : `RELATÓRIO RADIOGRÁFICO
+- [Adicione um modelo da biblioteca]
+
+IMPRESSÕES DIAGNÓSTICAS
+- [Impressão diagnóstica]
+
+COMENTÁRIOS
+- [Comentário]`;
   const openWriter = (item: Reference) => {
     const existing = drafts.find((draft) => draft.id === item.id);
-    setActive(item); setDescription(existing?.description ?? completeDescription(item)); setImpression(existing?.impression ?? item.impression); setComment(existing?.comment ?? recommendedComment(item));
+    setActive(item); setFullText(existing?.fullText ?? fullModelText(item));
   };
   const saveDraft = () => {
-    if (!active || !impression.trim()) return;
-    const draft = { id: active.id, title: active.title, region: active.region, description: description.trim(), impression: impression.trim(), comment: comment.trim() };
+    if (!active || !fullText.trim()) return;
+    const draft = { id: active.id, title: active.title, region: active.region, fullText: fullText.trim() };
     setDrafts((current) => current.some((item) => item.id === draft.id) ? current.map((item) => item.id === draft.id ? draft : item) : [...current, draft]);
     setActive(null);
   };
@@ -259,14 +275,13 @@ export default function Home() {
     <section className="clinical-grid">
       <section className="clinical-reference">
         <article className="ready-texts">
-          <div className="ready-block"><p className="section-label">RELATÓRIO RADIOGRÁFICO COMPLETO</p><p>{completeDescription(active)}</p></div>
-          <div className="ready-block impression-ready"><p className="section-label">IMPRESSÃO DIRETA</p><p>{active.impression}</p></div>
+          <div className="ready-block"><p className="section-label">MODELO COMPLETO</p><p>{fullModelText(active)}</p></div>
         </article>
         <article className="recognition-card"><p className="section-label">COMO ESSA ALTERAÇÃO APARECE</p><h2>O que procurar na imagem</h2><ul>{active.appearance.map((item) => <li key={item}>{item}</li>)}</ul></article>
         {active.visual && <figure className="visual-reference"><img src={active.visual.src} alt={active.visual.alt} /><figcaption><b>{active.visual.caption}</b><span>{active.visual.source}</span></figcaption></figure>}
         <article className="consult-card"><div><p className="section-label">ROTEIRO DE LEITURA</p><ul>{active.readingGuide.map((item) => <li key={item}>{item}</li>)}</ul></div><div><p className="section-label">DIFERENCIAIS E CUIDADOS</p><ul>{active.differentials.length ? active.differentials.map((item) => <li key={item}>{item}</li>) : <li>Não se aplica ao modelo de normalidade.</li>}</ul></div><p className="source-line">Fonte de consulta: {active.source}</p></article>
       </section>
-      <article className="editor-card clinical-editor"><p className="section-label">ADAPTE PARA O SEU CASO</p><h2>Modelo completo</h2><p className="editor-help">O relatório, a impressão e o comentário já estão preenchidos. Ajuste somente os detalhes específicos do exame.</p><label>Relatório radiográfico<textarea value={description} onChange={(event) => setDescription(event.target.value)} /></label><label>Impressão diagnóstica<textarea value={impression} onChange={(event) => setImpression(event.target.value)} /></label><label>Comentário<textarea value={comment} onChange={(event) => setComment(event.target.value)} placeholder="Sugestão de exame complementar, controle ou ressalva." /></label><div className="writing-actions"><button type="button" className="secondary" onClick={() => setActive(null)}>Cancelar</button><button type="button" className="primary" onClick={saveDraft}>Salvar modelo completo</button></div></article>
+      <article className="editor-card clinical-editor"><p className="section-label">ADAPTE PARA O SEU CASO</p><h2>Modelo completo</h2><p className="editor-help">Todo o conteúdo está dentro de uma única caixa. Ajuste o texto livremente e salve o conjunto completo.</p><label>Relatório, impressões e comentários<textarea className="full-model-editor" value={fullText} onChange={(event) => setFullText(event.target.value)} /></label><div className="writing-actions"><button type="button" className="secondary" onClick={() => setActive(null)}>Cancelar</button><button type="button" className="primary" onClick={saveDraft}>Salvar modelo completo</button></div></article>
     </section>
   </main>;
 
