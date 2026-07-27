@@ -9,3 +9,5 @@
 .clinical-editor label:first-of-type textarea{min-height:310px}.clinical-editor label:nth-of-type(2) textarea{min-height:125px}.clinical-editor label:nth-of-type(3) textarea{min-height:125px}.draft-panel pre{max-height:520px}.ready-texts{grid-template-columns:1.3fr .7fr}.ready-block>p:last-child{font-size:13px;line-height:1.7}
 
 .ready-texts{display:block}.ready-block>p:last-child{white-space:pre-wrap}.clinical-editor .full-model-editor{min-height:760px;font-size:12px;line-height:1.7}.clinical-editor label:first-of-type .full-model-editor{min-height:760px}.clinical-editor .writing-actions{margin-top:4px}
+
+.save-notice{position:fixed;top:18px;right:18px;z-index:20;padding:12px 16px;background:#173033;color:#fff;border:1px solid #315154;box-shadow:4px 4px 0 rgba(23,48,51,.18);font-size:11px;font-weight:700}

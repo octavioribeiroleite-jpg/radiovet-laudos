@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ebookFindings from "./findings.json";
 
 type VisualReference = { src: string; alt: string; caption: string; source: string };
@@ -243,7 +243,27 @@ export default function Home() {
   const [active, setActive] = useState<Reference | null>(null);
   const [fullText, setFullText] = useState("");
   const [drafts, setDrafts] = useState<Draft[]>([]);
+  const [draftsLoaded, setDraftsLoaded] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [saved, setSaved] = useState(false);
+
+  useEffect(() => {
+    try {
+      const stored = window.localStorage.getItem("radiovet-drafts");
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed)) setDrafts(parsed.filter((draft) => draft?.id && draft?.fullText));
+      }
+    } catch {
+      window.localStorage.removeItem("radiovet-drafts");
+    } finally {
+      setDraftsLoaded(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (draftsLoaded) window.localStorage.setItem("radiovet-drafts", JSON.stringify(drafts));
+  }, [drafts, draftsLoaded]);
 
   const visible = useMemo(() => references.filter((item) => {
     const text = `${item.title} ${item.region} ${item.model}`.toLowerCase();
@@ -266,6 +286,8 @@ COMENTÁRIOS
     const draft = { id: active.id, title: active.title, region: active.region, fullText: fullText.trim() };
     setDrafts((current) => current.some((item) => item.id === draft.id) ? current.map((item) => item.id === draft.id ? draft : item) : [...current, draft]);
     setActive(null);
+    setSaved(true);
+    window.setTimeout(() => setSaved(false), 2400);
   };
   const copy = async () => { await navigator.clipboard.writeText(output); setCopied(true); window.setTimeout(() => setCopied(false), 1800); };
 
@@ -287,6 +309,7 @@ COMENTÁRIOS
 
   return <main>
     <header><div className="brand"><span className="brand-mark">R</span><span>RADIO<span>VET</span></span></div><p>Biblioteca de aprendizado</p><span className="header-note">Leia um modelo, abra e escreva por etapas.</span></header>
+    {saved && <div className="save-notice" role="status">Modelo salvo no seu rascunho.</div>}
     <section className="intro"><p className="eyebrow">200 FICHAS RADIOGRÁFICAS</p><h1>Reconheça a alteração.<br/><em>Descreva com segurança.</em></h1><p>Cada ficha reúne descrição completa, impressão direta, sinais para procurar e um roteiro de leitura. As referências visuais do Thrall estão sendo integradas às alterações correspondentes.</p></section>
     <section className="learning-layout">
       <aside className="region-nav"><p className="section-label">NAVEGAR POR REGIÃO</p>{["Todos", ...regionOrder.filter((item) => references.some((reference) => reference.region === item))].map((item) => <button type="button" className={region === item ? "active" : ""} onClick={() => setRegion(item)} key={item}>{item}<span>{item === "Todos" ? references.length : references.filter((reference) => reference.region === item).length}</span></button>)}</aside>
