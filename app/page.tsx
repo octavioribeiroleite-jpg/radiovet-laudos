@@ -14,6 +14,7 @@ type Reference = {
   readingGuide: string[];
   differentials: string[];
   source: string;
+  suggestedComment?: string;
   visual?: VisualReference;
   kind?: "pre-laudo" | "alteração";
 };
@@ -44,6 +45,83 @@ const chapterByRegion: Record<string, string> = {
   "Gestacional": "Thrall, Diagnóstico de Radiologia Veterinária, 6ª ed., seção do trato reprodutivo.",
   "Outros": "Thrall, Diagnóstico de Radiologia Veterinária, 6ª ed.",
 };
+
+type NormalLine = { avoid: string[]; text: string };
+const normalLinesByRegion: Record<string, NormalLine[]> = {
+  "Crânio": [
+    { avoid: ["nasal", "seio", "vômer", "rinite"], text: "Cavidades nasais e seios frontais simétricos, com radiopacidade e contornos preservados." },
+    { avoid: ["temporomandibular", "mandíbula", "mandibular"], text: "Articulações temporomandibulares congruentes e coaptadas." },
+    { avoid: ["otite", "bula", "auditivo"], text: "Bulas timpânicas e condutos auditivos com radiopacidade e contornos preservados." },
+    { avoid: ["dent", "periodontal", "periapical", "maxilar"], text: "Dentes e alvéolos dentários avaliados sem alterações radiográficas adicionais." },
+  ],
+  "Cervical": [
+    { avoid: ["palato", "faring", "laringe"], text: "Nasofaringe, orofaringe e laringe com lúmen e contornos preservados." },
+    { avoid: ["traque"], text: "Traqueia cervical com diâmetro uniforme e trajeto preservado." },
+    { avoid: ["esôfago", "esofág"], text: "Não há evidências de dilatação ou conteúdo radiopaco no trajeto esofágico cervical." },
+    { avoid: ["hióide"], text: "Aparelho hioide com alinhamento e integridade preservados." },
+  ],
+  "Coluna": [
+    { avoid: ["luxação", "listese", "instabilidade", "fratura"], text: "Alinhamento vertebral preservado nos demais segmentos avaliados." },
+    { avoid: ["disco", "intervertebral", "espondil"], text: "Demais espaços intervertebrais com altura regular, sem sinais de colapso ou estreitamento." },
+    { avoid: ["forame", "compress"], text: "Forames intervertebrais com dimensões e contornos preservados." },
+    { avoid: ["processo", "osteofit", "espondil"], text: "Processos espinhosos, transversos e articulares sem alterações radiográficas adicionais." },
+  ],
+  "Membros": [
+    { avoid: ["fratura", "luxação", "subluxação"], text: "Alinhamento ósseo e relações articulares preservados nas demais estruturas avaliadas." },
+    { avoid: ["osteólise", "neopl", "tumor", "osteomiel"], text: "Corticais e cavidades medulares remanescentes com radiopacidade e contornos preservados." },
+    { avoid: ["artrose", "osteoart", "artrite", "patelar"], text: "Demais superfícies articulares regulares, sem proliferações periarticulares significativas." },
+    { avoid: ["edema", "tecido mole", "massa"], text: "Tecidos moles adjacentes sem alterações radiográficas dignas de nota." },
+  ],
+  "Coxal": [
+    { avoid: ["sacroilíaca", "sacroiliaca"], text: "Articulações sacroilíacas simétricas e congruentes." },
+    { avoid: ["coxofemoral", "quadril", "femoral"], text: "Articulações coxofemorais com congruência e cobertura acetabular preservadas." },
+    { avoid: ["pelve", "pélv", "fratura"], text: "Ossos da pelve com corticais contínuas e trabeculado ósseo preservado." },
+    { avoid: ["massa", "tecido mole"], text: "Tecidos moles da região pélvica sem alterações radiográficas adicionais." },
+  ],
+  "Tórax": [
+    { avoid: ["traque", "brônqu", "bronqu"], text: "Traqueia com diâmetro uniforme e trajeto preservado." },
+    { avoid: ["cardio", "coração", "pericárd"], text: "Silhueta cardíaca com dimensões e contornos preservados." },
+    { avoid: ["mediast"], text: "Mediastino e estruturas hilares sem alterações radiográficas dignas de nota." },
+    { avoid: ["pleural", "pneumotórax", "pneumotorax"], text: "Espaço pleural sem evidências de líquido ou gás livre." },
+    { avoid: ["pulmon", "pneumonia", "bronco", "alveolar", "intersticial"], text: "Campos pulmonares remanescentes com radiopacidade preservada." },
+  ],
+  "Abdômen": [
+    { avoid: ["efusão", "peritoneal"], text: "Detalhamento seroso abdominal preservado." },
+    { avoid: ["hepato", "fígado", "espleno", "baço", "renal", "rim"], text: "Silhuetas hepática, esplênica e renais com dimensões e contornos preservados." },
+    { avoid: ["gástr", "intestinal", "esôfago", "corpo estranho", "obstru"], text: "Estômago e alças intestinais com distribuição e conteúdo dentro do esperado." },
+    { avoid: ["vesical", "bexiga", "cist", "uro"], text: "Bexiga urinária com contornos regulares e conteúdo homogêneo." },
+  ],
+  "Gestacional": [
+    { avoid: [], text: "Demais estruturas abdominais passíveis de avaliação sem alterações radiográficas adicionais." },
+  ],
+  "Outros": [
+    { avoid: [], text: "Demais estruturas avaliadas sem alterações radiográficas dignas de nota." },
+  ],
+};
+
+function recommendedComment(item: Reference) {
+  if (item.suggestedComment) return item.suggestedComment;
+  const title = item.title.toLowerCase();
+  if (/hidrocef|occipital|vertebral|coluna|disco|wobbler|atlanto|neurol/.test(title)) return "A critério clínico, na presença de sinais neurológicos, sugere-se tomografia computadorizada e/ou ressonância magnética para melhor caracterização.";
+  if (/fratura|luxação|subluxação|ruptura|instabilidade/.test(title)) return "A critério clínico, sugere-se avaliação ortopédica e controle por imagem após a instituição das medidas terapêuticas.";
+  if (/neopl|tumor|massa|nódulo|nodulo/.test(title)) return "Sugere-se complementação diagnóstica para caracterização e estadiamento, conforme a localização do achado.";
+  if (/cardio|pericárd|coração/.test(title)) return "A critério clínico, sugere-se avaliação ecocardiográfica para melhor caracterização.";
+  if (/pneumotórax|pleural/.test(title)) return "Recomenda-se correlação imediata com a condição respiratória e avaliação complementar do espaço pleural conforme indicação clínica.";
+  if (/pulmon|pneumonia|bronco|traque/.test(title)) return "Sugere-se correlação com histórico, ausculta, hemograma e acompanhamento radiográfico conforme evolução clínica.";
+  if (/corpo estranho|obstrução|gástr|intestinal/.test(title)) return "A critério clínico, sugere-se ultrassonografia abdominal e avaliação cirúrgica conforme os sinais de obstrução.";
+  if (/gesta|prenhez|fetal|feto/.test(title)) return "A estimativa radiográfica deve ser correlacionada com ultrassonografia e acompanhamento obstétrico.";
+  return "A critério clínico, sugere-se correlação com histórico, exame físico e exames complementares pertinentes.";
+}
+
+function completeDescription(item: Reference) {
+  if (item.kind === "pre-laudo") return item.model;
+  const title = item.title.toLowerCase();
+  const main = item.model.trim().replace(/[.;]$/, "");
+  const normalLines = (normalLinesByRegion[item.region] || normalLinesByRegion["Outros"])
+    .filter((line) => !line.avoid.some((term) => title.includes(term)))
+    .map((line) => `- ${line.text}`);
+  return [`- ${main}.`, ...normalLines, "- Demais estruturas passíveis de avaliação sem alterações radiográficas dignas de nota."].join("\n");
+}
 
 const clinicalDetails: Record<string, Partial<Reference>> = {
   "Hidrocefalia": {
@@ -162,10 +240,10 @@ export default function Home() {
     const text = `${item.title} ${item.region} ${item.model}`.toLowerCase();
     return (region === "Todos" || item.region === region) && text.includes(search.toLowerCase());
   }), [region, search]);
-  const output = `IMPRESSÕES DIAGNÓSTICAS\n${drafts.length ? drafts.map((draft) => `- ${draft.impression.trim()}`).join("\n") : "- [Adicione uma impressão diagnóstica]"}${drafts.some((draft) => draft.comment.trim()) ? `\n\nCOMENTÁRIOS\n${drafts.filter((draft) => draft.comment.trim()).map((draft) => draft.comment.trim()).join("\n")}` : ""}`;
+  const output = `RELATÓRIO RADIOGRÁFICO\n${drafts.length ? drafts.map((draft) => draft.description.trim()).join("\n\n") : "- [Adicione um modelo da biblioteca]"}\n\nIMPRESSÕES DIAGNÓSTICAS\n${drafts.length ? drafts.map((draft) => `- ${draft.impression.trim()}`).join("\n") : "- [Adicione uma impressão diagnóstica]"}\n\nCOMENTÁRIOS\n${drafts.length ? drafts.map((draft) => `- ${draft.comment.trim() || "Sem comentários adicionais."}`).join("\n") : "- [Adicione um modelo para receber a recomendação correspondente]"}`;
   const openWriter = (item: Reference) => {
     const existing = drafts.find((draft) => draft.id === item.id);
-    setActive(item); setDescription(existing?.description ?? item.model); setImpression(existing?.impression ?? item.impression); setComment(existing?.comment ?? "");
+    setActive(item); setDescription(existing?.description ?? completeDescription(item)); setImpression(existing?.impression ?? item.impression); setComment(existing?.comment ?? recommendedComment(item));
   };
   const saveDraft = () => {
     if (!active || !impression.trim()) return;
@@ -181,14 +259,14 @@ export default function Home() {
     <section className="clinical-grid">
       <section className="clinical-reference">
         <article className="ready-texts">
-          <div className="ready-block"><p className="section-label">DESCRIÇÃO COMPLETA</p><p>{active.model}</p></div>
+          <div className="ready-block"><p className="section-label">RELATÓRIO RADIOGRÁFICO COMPLETO</p><p>{completeDescription(active)}</p></div>
           <div className="ready-block impression-ready"><p className="section-label">IMPRESSÃO DIRETA</p><p>{active.impression}</p></div>
         </article>
         <article className="recognition-card"><p className="section-label">COMO ESSA ALTERAÇÃO APARECE</p><h2>O que procurar na imagem</h2><ul>{active.appearance.map((item) => <li key={item}>{item}</li>)}</ul></article>
         {active.visual && <figure className="visual-reference"><img src={active.visual.src} alt={active.visual.alt} /><figcaption><b>{active.visual.caption}</b><span>{active.visual.source}</span></figcaption></figure>}
         <article className="consult-card"><div><p className="section-label">ROTEIRO DE LEITURA</p><ul>{active.readingGuide.map((item) => <li key={item}>{item}</li>)}</ul></div><div><p className="section-label">DIFERENCIAIS E CUIDADOS</p><ul>{active.differentials.length ? active.differentials.map((item) => <li key={item}>{item}</li>) : <li>Não se aplica ao modelo de normalidade.</li>}</ul></div><p className="source-line">Fonte de consulta: {active.source}</p></article>
       </section>
-      <article className="editor-card clinical-editor"><p className="section-label">ADAPTE PARA O SEU CASO</p><h2>Seu texto</h2><p className="editor-help">A descrição e a impressão já estão completas. Ajuste apenas localização, lateralidade, intensidade e particularidades do exame.</p><label>Descrição radiográfica<textarea value={description} onChange={(event) => setDescription(event.target.value)} /></label><label>Impressão diagnóstica<textarea value={impression} onChange={(event) => setImpression(event.target.value)} /></label><label>Comentário <small>opcional</small><textarea value={comment} onChange={(event) => setComment(event.target.value)} placeholder="Sugestão de exame complementar, controle ou ressalva." /></label><div className="writing-actions"><button type="button" className="secondary" onClick={() => setActive(null)}>Cancelar</button><button type="button" className="primary" onClick={saveDraft}>Salvar no rascunho</button></div></article>
+      <article className="editor-card clinical-editor"><p className="section-label">ADAPTE PARA O SEU CASO</p><h2>Modelo completo</h2><p className="editor-help">O relatório, a impressão e o comentário já estão preenchidos. Ajuste somente os detalhes específicos do exame.</p><label>Relatório radiográfico<textarea value={description} onChange={(event) => setDescription(event.target.value)} /></label><label>Impressão diagnóstica<textarea value={impression} onChange={(event) => setImpression(event.target.value)} /></label><label>Comentário<textarea value={comment} onChange={(event) => setComment(event.target.value)} placeholder="Sugestão de exame complementar, controle ou ressalva." /></label><div className="writing-actions"><button type="button" className="secondary" onClick={() => setActive(null)}>Cancelar</button><button type="button" className="primary" onClick={saveDraft}>Salvar modelo completo</button></div></article>
     </section>
   </main>;
 
@@ -197,8 +275,8 @@ export default function Home() {
     <section className="intro"><p className="eyebrow">200 FICHAS RADIOGRÁFICAS</p><h1>Reconheça a alteração.<br/><em>Descreva com segurança.</em></h1><p>Cada ficha reúne descrição completa, impressão direta, sinais para procurar e um roteiro de leitura. As referências visuais do Thrall estão sendo integradas às alterações correspondentes.</p></section>
     <section className="learning-layout">
       <aside className="region-nav"><p className="section-label">NAVEGAR POR REGIÃO</p>{["Todos", ...regionOrder.filter((item) => references.some((reference) => reference.region === item))].map((item) => <button type="button" className={region === item ? "active" : ""} onClick={() => setRegion(item)} key={item}>{item}<span>{item === "Todos" ? references.length : references.filter((reference) => reference.region === item).length}</span></button>)}</aside>
-      <section className="library"><div className="library-head"><div><p className="section-label">FICHAS PARA CONSULTA</p><h2>{region === "Todos" ? "Escolha uma região" : region}</h2></div><label className="search"><span>⌕</span><input aria-label="Buscar modelo" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Buscar alteração ou estrutura" /></label></div><div className="reference-grid">{visible.map((item) => <article className={`learning-card ${item.kind === "pre-laudo" ? "ready-model" : ""}`} key={item.id}>{item.visual && <div className="card-image"><img src={item.visual.src} alt="" /><span>Referência visual</span></div>}<div className="card-meta"><span>{item.kind === "pre-laudo" ? "PRÉ-LAUDO" : item.region.toUpperCase()}</span><small>{item.region}</small></div><h3>{item.title}</h3><p>{item.model}</p><div className="card-impression"><b>Impressão direta</b><span>{item.impression}</span></div><button type="button" onClick={() => openWriter(item)}>Consultar ficha e adaptar <span>→</span></button></article>)}</div></section>
-      <aside className="draft-panel"><p className="section-label">MEU RASCUNHO</p><h2>Impressões</h2>{drafts.length ? <div className="draft-list">{drafts.map((draft) => <button type="button" key={draft.id} onClick={() => { const item = references.find((reference) => reference.id === draft.id); if (item) openWriter(item); }}><span>{draft.region}</span>{draft.title}</button>)}</div> : <div className="draft-empty"><b>Ainda vazio.</b><p>Abra um modelo e salve sua versão aqui.</p></div>}<pre>{output}</pre><div className="draft-actions"><button type="button" className="secondary" onClick={() => setDrafts([])} disabled={!drafts.length}>Limpar</button><button type="button" className="primary" onClick={copy}>{copied ? "Copiado" : "Copiar texto"}</button></div><p className="disclaimer">Ferramenta de estudo e apoio à redação. A interpretação e responsabilidade técnica são do médico-veterinário.</p></aside>
+      <section className="library"><div className="library-head"><div><p className="section-label">FICHAS PARA CONSULTA</p><h2>{region === "Todos" ? "Escolha uma região" : region}</h2></div><label className="search"><span>⌕</span><input aria-label="Buscar modelo" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Buscar alteração ou estrutura" /></label></div><div className="reference-grid">{visible.map((item) => <article className={`learning-card ${item.kind === "pre-laudo" ? "ready-model" : ""}`} key={item.id}>{item.visual && <div className="card-image"><img src={item.visual.src} alt="" /><span>Referência visual</span></div>}<div className="card-meta"><span>{item.kind === "pre-laudo" ? "PRÉ-LAUDO" : item.region.toUpperCase()}</span><small>Modelo completo</small></div><h3>{item.title}</h3><p>{item.model}</p><div className="card-impression"><b>Impressão direta</b><span>{item.impression}</span></div><button type="button" onClick={() => openWriter(item)}>Abrir relatório completo <span>→</span></button></article>)}</div></section>
+      <aside className="draft-panel"><p className="section-label">MEU RASCUNHO</p><h2>Modelo completo</h2>{drafts.length ? <div className="draft-list">{drafts.map((draft) => <button type="button" key={draft.id} onClick={() => { const item = references.find((reference) => reference.id === draft.id); if (item) openWriter(item); }}><span>{draft.region}</span>{draft.title}</button>)}</div> : <div className="draft-empty"><b>Ainda vazio.</b><p>Abra uma ficha e salve o modelo completo aqui.</p></div>}<pre>{output}</pre><div className="draft-actions"><button type="button" className="secondary" onClick={() => setDrafts([])} disabled={!drafts.length}>Limpar</button><button type="button" className="primary" onClick={copy}>{copied ? "Copiado" : "Copiar modelo"}</button></div><p className="disclaimer">Ferramenta de estudo e apoio à redação. A interpretação e responsabilidade técnica são do médico-veterinário.</p></aside>
     </section>
   </main>;
 }
