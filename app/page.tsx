@@ -3,69 +3,147 @@
 import { useMemo, useState } from "react";
 import ebookFindings from "./findings.json";
 
-type Finding = { id: string; region: string; title: string; tags: string[]; report: string; impression: string; normal?: string };
-
-const coreLibrary: Finding[] = [
-  { id: "pneumonia", region: "Tórax", title: "Pneumonia / padrão alveolar", tags: ["pulmão", "inflamação"], report: "Campos pulmonares com aumento de radiopacidade de padrão alveolar, mais evidente em [lobo/região], associado a broncogramas aéreos.", impression: "Achados radiográficos sugerem pneumonia em [lobo/região]." },
-  { id: "bronquite", region: "Tórax", title: "Broncopneumopatia inflamatória", tags: ["pulmão", "crônico"], report: "Campos pulmonares discretamente opacificados por padrão intersticiobronquial.", impression: "Broncopneumopatia inflamatória crônica discreta, a correlacionar com os dados clínicos." },
-  { id: "cardio", region: "Tórax", title: "Cardiomegalia", tags: ["coração"], report: "Silhueta cardíaca apresenta-se aumentada, com [câmara] mais evidente.", impression: "Cardiomegalia [discreta/moderada/acentuada]. A critério clínico, sugere-se ecodopplercardiograma para melhor caracterização." },
-  { id: "pleural", region: "Tórax", title: "Efusão pleural", tags: ["pleura", "líquido"], report: "Espaço pleural evidenciado por conteúdo de radiopacidade água, com fissuras interlobares e retração parcial dos lobos pulmonares.", impression: "Efusão pleural [discreta/moderada/acentuada]." },
-  { id: "fracture-rib", region: "Tórax", title: "Fratura de costela", tags: ["trauma", "osso"], report: "[Costela] apresenta fratura [simples/cominutiva], [com/sem] desalinhamento dos segmentos ósseos.", impression: "Fratura em [costela/lado]." },
-  { id: "dch", region: "Pelve", title: "Displasia coxofemoral", tags: ["quadril", "degenerativo"], report: "Articulação coxofemoral [lado] incongruente, com remodelamento de cabeça e colo femoral, acetábulo raso e osteófitos periarticulares.", impression: "Displasia coxofemoral [grau] em [lado], associada a osteoartrose." },
-  { id: "patella", region: "Joelho", title: "Luxação patelar", tags: ["joelho", "articulação"], report: "Patela apresentando desvio [medial/lateral] em relação ao sulco troclear, associada a [desvio/rotação] dos terços proximais tibiais.", impression: "Luxação patelar [unilateral/bilateral], [grau se aplicável]." },
-  { id: "long-bone", region: "Membros", title: "Fratura em osso longo", tags: ["trauma", "osso"], report: "Fratura [completa/incompleta], [simples/cominutiva] em [osso/segmento], com desvio [direção] do segmento distal em relação ao proximal. Há aumento de volume de tecidos moles adjacentes.", impression: "Fratura em [osso/lado]." },
-  { id: "osteo", region: "Membros", title: "Osteoartrose", tags: ["articulação", "degenerativo"], report: "Irregularidade das superfícies articulares, osteófitos periarticulares e discreta esclerose subcondral em [articulação].", impression: "Osteoartrose em [articulação], [grau]." },
-  { id: "spondy", region: "Coluna", title: "Espondilose deformante", tags: ["coluna", "degenerativo"], report: "Proliferação óssea ventral nos corpos vertebrais de [segmentos], com formação de pontes ósseas em graus variáveis.", impression: "Espondilose deformante em [segmentos]." },
-  { id: "disc", region: "Coluna", title: "Discopatia", tags: ["coluna", "disco"], report: "Redução do espaço intervertebral entre [segmentos], associada a esclerose dos platôs vertebrais e/ou mineralização discal.", impression: "Achados compatíveis com discopatia em [segmentos]." },
-  { id: "hepa", region: "Abdômen", title: "Hepatomegalia", tags: ["fígado"], report: "Silhueta hepática aumentada, com extensão caudal além do arco costal e deslocamento caudal do eixo gástrico.", impression: "Hepatomegalia. Achado de caráter inespecífico." },
-  { id: "uro", region: "Abdômen", title: "Urolitíase", tags: ["bexiga", "mineral"], report: "Bexiga urinária contendo estruturas arredondadas de radiopacidade mineral, a maior medindo aproximadamente [medida].", impression: "Urocistólitos." },
-  { id: "foreign", region: "Abdômen", title: "Corpo estranho gastrointestinal", tags: ["obstrução", "gastrointestinal"], report: "Estrutura de radiopacidade [mineral/metálica] em topografia de [órgão], associada a [distensão/distribuição] das alças intestinais.", impression: "Achados sugestivos de corpo estranho gastrointestinal. Considerar obstrução, conforme correlação clínica." },
-  { id: "nasal", region: "Crânio", title: "Lesão nasal agressiva", tags: ["nariz", "neoplasia"], report: "Aumento de radiopacidade em cavidade nasal [lado], associado a lise do osso vômer e perda da definição das conchas nasais.", impression: "Lesão nasal agressiva, podendo estar relacionada a processo neoplásico. Sugere-se complementação diagnóstica." },
-  { id: "otitis", region: "Crânio", title: "Otite média", tags: ["bula timpânica"], report: "Aumento da radiopacidade e espessamento da bula timpânica [lado].", impression: "Achados sugestivos de otite média [unilateral/bilateral]." },
-  { id: "pregnancy", region: "Gestacional", title: "Prenhez positiva", tags: ["feto", "gestação"], report: "Identificam-se esqueletos fetais mineralizados em cavidade abdominal, permitindo estimativa radiográfica de [número] concepto(s).", impression: "Prenhez positiva, com estimativa de [número] concepto(s)." },
-];
-
-const library: Finding[] = [
-  ...coreLibrary,
-  ...ebookFindings
-    .filter((item) => !coreLibrary.some((finding) => finding.title.toLowerCase() === item.title.toLowerCase()))
-    .map((item, index) => ({
-      id: `ebook-${index}`,
-      region: item.region,
-      title: item.title,
-      tags: [item.region.toLowerCase(), "biblioteca"],
-      report: item.text,
-      impression: `Achados radiográficos relacionados a ${item.title.toLowerCase()}.`,
-    })),
-];
-
-const normalByRegion: Record<string, string> = {
-  "Tórax": "Silhueta traqueal de diâmetro e contorno preservados. Silhueta cardíaca de tamanho e formato preservados. Mediastino cranial normoespesso e de radiopacidade ideal.",
-  "Abdômen": "Silhuetas renal, hepática e esplênica de tamanho, contorno e radiopacidade preservados.",
-  "Pelve": "Demais estruturas ósseas avaliadas sem alterações radiográficas dignas de nota.",
-  "Coluna": "Demais corpos vertebrais, forames e espaços intervertebrais avaliados sem alterações radiográficas dignas de nota.",
+type Suggestion = {
+  id: string;
+  title: string;
+  region: string;
+  source: "Minha biblioteca" | "Ebook" | "Essencial";
+  text: string;
+  tags: string[];
 };
 
+type SelectedItem = Pick<Suggestion, "id" | "title" | "source" | "text">;
+
+const essentials: Suggestion[] = [
+  { id: "pneumonia", title: "Pneumonia / padrão alveolar", region: "Tórax", source: "Essencial", tags: ["pulmão", "inflamação"], text: "Achados radiográficos sugerem pneumonia em [lobo/região]." },
+  { id: "bronquite", title: "Broncopneumopatia inflamatória", region: "Tórax", source: "Essencial", tags: ["pulmão", "crônico"], text: "Broncopneumopatia inflamatória crônica discreta, a correlacionar com os dados clínicos." },
+  { id: "cardio", title: "Cardiomegalia", region: "Tórax", source: "Essencial", tags: ["coração"], text: "Cardiomegalia [discreta/moderada/acentuada]. A critério clínico, sugere-se ecodopplercardiograma para melhor caracterização." },
+  { id: "pleural", title: "Efusão pleural", region: "Tórax", source: "Essencial", tags: ["pleura", "líquido"], text: "Efusão pleural [discreta/moderada/acentuada]." },
+  { id: "dch", title: "Displasia coxofemoral", region: "Pelve", source: "Essencial", tags: ["quadril", "degenerativo"], text: "Displasia coxofemoral [grau] em [lado], associada a osteoartrose." },
+  { id: "patella", title: "Luxação patelar", region: "Joelho", source: "Essencial", tags: ["joelho", "articulação"], text: "Luxação patelar [unilateral/bilateral], [grau se aplicável]." },
+  { id: "fracture", title: "Fratura em osso longo", region: "Membros", source: "Essencial", tags: ["trauma", "osso"], text: "Fratura em [osso/lado]." },
+  { id: "osteo", title: "Osteoartrose", region: "Membros", source: "Essencial", tags: ["articulação", "degenerativo"], text: "Osteoartrose em [articulação], [grau]." },
+  { id: "disc", title: "Discopatia", region: "Coluna", source: "Essencial", tags: ["coluna", "disco"], text: "Achados compatíveis com discopatia em [segmentos]." },
+  { id: "uro", title: "Urolitíase", region: "Abdômen", source: "Essencial", tags: ["bexiga", "mineral"], text: "Urocistólitos." },
+];
+
+const personalModels: Suggestion[] = [
+  {
+    id: "modelo-torax-drive",
+    title: "Modelo de relatorios radiograficos cavidade toracica .pdf",
+    region: "Tórax",
+    source: "Minha biblioteca",
+    tags: ["tórax", "modelo", "drive"],
+    text: "Não foram identificadas alterações radiográficas torácicas agudas. Correlacionar os achados com o quadro clínico e exames complementares, se indicados.",
+  },
+  {
+    id: "modelo-esqueleto-drive",
+    title: "Laudos Esqueleto apendicular (Combinado).pdf",
+    region: "Membros",
+    source: "Minha biblioteca",
+    tags: ["esqueleto", "membros", "modelo", "drive"],
+    text: "Achados radiográficos compatíveis com alteração em [estrutura/lado]. Considerar correlação com exame ortopédico e acompanhamento radiográfico conforme indicação clínica.",
+  },
+];
+
+const ebookSuggestions: Suggestion[] = ebookFindings.map((item, index) => ({
+  id: `ebook-${index}`,
+  title: item.title,
+  region: item.region,
+  source: "Ebook",
+  tags: [item.region, "referência"],
+  text: item.text,
+}));
+
+const library = [...personalModels, ...essentials, ...ebookSuggestions];
+
 export default function Home() {
-  const [search, setSearch] = useState(""); const [selected, setSelected] = useState<Finding[]>([]); const [region, setRegion] = useState("Tórax");
-  const [data, setData] = useState({ patient: "", species: "Canino", breed: "", age: "", sex: "", clinic: "", vet: "", projections: "LLD e VD", history: "", quality: "" });
-  const [includeNormals, setIncludeNormals] = useState(true); const [comments, setComments] = useState(""); const [showChecks, setShowChecks] = useState(false);
-  const options = useMemo(() => library.filter(f => `${f.title} ${f.region} ${f.tags.join(" ")}`.toLowerCase().includes(search.toLowerCase()) && (region === "Todos" || f.region === region)), [search, region]);
-  const groups = useMemo(() => selected.reduce<Record<string, Finding[]>>((a, f) => ({ ...a, [f.region]: [...(a[f.region] || []), f] }), {}), [selected]);
-  const checks = [!data.patient && "Informe o paciente.", !data.projections && "Informe as projeções.", !data.history && "Inclua histórico ou suspeita clínica.", selected.length === 0 && "Selecione ao menos um achado ou modelo de normalidade.", selected.some(f => /\[.*\]/.test(f.report + f.impression)) && "Há campos entre colchetes para completar antes de finalizar.", !data.quality && "Registre limitações técnicas apenas se elas existirem."] .filter(Boolean) as string[];
-  const allComments = [data.quality, comments].filter(Boolean).join("\n");
-  const report = `LAUDO RADIOGRÁFICO\n\nPaciente: ${data.patient || "[paciente]"}${data.age ? `  Idade: ${data.age}` : ""}${data.sex ? `  Sexo: ${data.sex}` : ""}\nEspécie/Raça: ${data.species}${data.breed ? ` / ${data.breed}` : ""}\nClínica: ${data.clinic || "[clínica]"}${data.vet ? `  Médico-veterinário solicitante: ${data.vet}` : ""}\nProjeções: ${data.projections || "[projeções]"}\nRegião de estudo: ${Object.keys(groups).join(", ") || region}\n${data.history ? `\nHISTÓRICO / SUSPEITA CLÍNICA\n${data.history}\n` : ""}\nRELATÓRIO RADIOGRÁFICO\n${Object.entries(groups).map(([key, list]) => `\n${key.toUpperCase()}\n${list.map(f => `- ${f.report}`).join("\n")}${includeNormals && normalByRegion[key] ? `\n- ${normalByRegion[key]}` : ""}\n- Demais estruturas sem alterações radiográficas dignas de nota.`).join("\n") || "\n[Selecione os achados na biblioteca.]"}\n\nIMPRESSÕES DIAGNÓSTICAS\n${selected.map(f => `- ${f.impression}`).join("\n") || "- [Impressão diagnóstica]"}${allComments ? `\n\nCOMENTÁRIOS\n${allComments}` : ""}\n\nLaudado por\nOctávio Ribeiro Leite - Médico-veterinário - CRMV ES 4456`;
-  const toggle = (f: Finding) => setSelected(s => s.some(x => x.id === f.id) ? s.filter(x => x.id !== f.id) : [...s, f]);
-  const update = (key: keyof typeof data, value: string) => setData(d => ({ ...d, [key]: value }));
-  const copy = async () => { await navigator.clipboard.writeText(report); alert("Laudo copiado."); };
-  const regions = ["Todos", ...Array.from(new Set(library.map(f => f.region)))];
+  const [search, setSearch] = useState("");
+  const [region, setRegion] = useState("Todos");
+  const [source, setSource] = useState("Todos");
+  const [selected, setSelected] = useState<SelectedItem[]>([]);
+  const [newImpression, setNewImpression] = useState("");
+  const [comments, setComments] = useState("");
+  const [copied, setCopied] = useState(false);
+
+  const options = useMemo(() => library.filter((item) => {
+    const searchable = `${item.title} ${item.region} ${item.tags.join(" ")} ${item.text}`.toLowerCase();
+    return searchable.includes(search.toLowerCase()) && (region === "Todos" || item.region === region) && (source === "Todos" || item.source === source);
+  }), [search, region, source]);
+  const regions = useMemo(() => ["Todos", ...Array.from(new Set(library.map((item) => item.region)))], []);
+  const output = `IMPRESSÕES DIAGNÓSTICAS\n${selected.length ? selected.map((item) => `- ${item.text.trim()}`).join("\n") : "- [Adicione uma impressão diagnóstica]"}${comments.trim() ? `\n\nCOMENTÁRIOS\n${comments.trim()}` : ""}`;
+
+  const addSuggestion = (item: Suggestion) => {
+    if (!selected.some((selectedItem) => selectedItem.id === item.id)) {
+      setSelected((current) => [...current, { id: item.id, title: item.title, source: item.source, text: item.text }]);
+    }
+  };
+  const addFreeText = () => {
+    const text = newImpression.trim();
+    if (!text) return;
+    setSelected((current) => [...current, { id: `manual-${Date.now()}`, title: "Impressão livre", source: "Essencial", text }]);
+    setNewImpression("");
+  };
+  const updateSelected = (id: string, text: string) => setSelected((current) => current.map((item) => item.id === id ? { ...item, text } : item));
+  const copy = async () => {
+    await navigator.clipboard.writeText(output);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1800);
+  };
+
   return <main>
-    <header><div className="brand"><span className="brand-mark">R</span><span>RADIO<span>VET</span></span></div><div className="header-note">Montador estruturado de laudos</div><div className="status"><i /> Rascunho salvo neste dispositivo</div></header>
-    <section className="intro"><div><p className="eyebrow">FLUXO CLÍNICO ESTRUTURADO</p><h1>Seu raciocínio.<br/><em>Seu padrão de laudo.</em></h1><p>Da história à impressão diagnóstica, em um formato pronto para revisar e assinar.</p></div><ol><li><b>01</b><span>Contexto clínico</span></li><li><b>02</b><span>Achados por região</span></li><li><b>03</b><span>Impressão e revisão</span></li></ol></section>
-    <section className="app-shell">
-      <aside className="steps"><p className="section-label">DADOS DO EXAME</p><div className="field-grid"><label>Paciente<input value={data.patient} onChange={e=>update("patient",e.target.value)} placeholder="Nome" /></label><label>Espécie<select value={data.species} onChange={e=>update("species",e.target.value)}><option>Canino</option><option>Felino</option><option>Outro</option></select></label><label>Raça<input value={data.breed} onChange={e=>update("breed",e.target.value)} placeholder="Raça" /></label><label>Idade<input value={data.age} onChange={e=>update("age",e.target.value)} placeholder="Ex.: 8 anos" /></label><label>Sexo<input value={data.sex} onChange={e=>update("sex",e.target.value)} placeholder="Macho/Fêmea" /></label><label>Projeções<input value={data.projections} onChange={e=>update("projections",e.target.value)} /></label></div><label>Clínica<input value={data.clinic} onChange={e=>update("clinic",e.target.value)} placeholder="Clínica" /></label><label>Solicitante<input value={data.vet} onChange={e=>update("vet",e.target.value)} placeholder="Médico-veterinário" /></label><label>Histórico / suspeita clínica<textarea value={data.history} onChange={e=>update("history",e.target.value)} placeholder="O que o exame precisa responder?" /></label><label>Limitação técnica (se houver)<textarea value={data.quality} onChange={e=>update("quality",e.target.value)} placeholder="Ex.: taquipneia, posicionamento limitado..." /></label><div className="check"><input id="normals" type="checkbox" checked={includeNormals} onChange={e=>setIncludeNormals(e.target.checked)} /><label htmlFor="normals">Incluir normalidades relevantes</label></div></aside>
-      <section className="finder"><div className="finder-head"><div><p className="section-label">ACHADOS E MODELOS</p><h2>Monte o relatório</h2></div><span>{selected.length} selecionado(s)</span></div><label className="search"><span>⌕</span><input aria-label="Buscar achado" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Buscar alteração, estrutura ou região" /></label><div className="chips">{regions.map(r=><button key={r} className={region===r?"active":""} onClick={()=>setRegion(r)}>{r}</button>)}</div><div className="finding-list">{options.map(f=><button type="button" className={`finding ${selected.some(x=>x.id===f.id)?"selected":""}`} aria-pressed={selected.some(x=>x.id===f.id)} key={f.id} onClick={()=>toggle(f)}><div><span>{f.region}</span><h3>{f.title}</h3><p>{f.report}</p></div><b>{selected.some(x=>x.id===f.id)?"✓":"+"}</b></button>)}</div></section>
-      <section className="report-panel"><div className="report-head"><div><p className="section-label">LAUDO EM CONSTRUÇÃO</p><h2>Revisão clínica</h2></div><button className="review" onClick={()=>setShowChecks(!showChecks)}>✓ Revisar {checks.length ? `(${checks.length})` : ""}</button></div>{showChecks&&<div className={`checks ${checks.length?"warn":"ok"}`}>{checks.length?checks.map(c=><p key={c}>• {c}</p>):<p>✓ Estrutura pronta para revisão final.</p>}</div>}<pre>{report}</pre><label className="comments">Comentários finais<textarea value={comments} onChange={e=>setComments(e.target.value)} placeholder="Recomendações, ressalvas e acompanhamento quando pertinentes." /></label><div className="actions"><button className="secondary" onClick={()=>{const b=new Blob([report],{type:"text/plain"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="laudo-radiografico.txt";a.click();}}>Baixar .txt</button><button className="primary" onClick={copy}>Copiar laudo</button></div><p className="disclaimer">Ferramenta de apoio à redação. A interpretação e responsabilidade técnica são exclusivas do médico-veterinário.</p></section>
+    <header>
+      <div className="brand"><span className="brand-mark">R</span><span>RADIO<span>VET</span></span></div>
+      <p>Auxiliador de laudos radiográficos</p>
+      <span className="header-note">Impressões primeiro. Texto sempre editável.</span>
+    </header>
+
+    <section className="intro">
+      <p className="eyebrow">BIBLIOTECA DE APOIO</p>
+      <h1>Um ponto de partida para<br/><em>o seu raciocínio clínico.</em></h1>
+      <p>Escolha uma referência, ajuste a linguagem e copie somente o que precisa. Sem dados de paciente, cabeçalho ou assinatura.</p>
+    </section>
+
+    <section className="workspace">
+      <section className="library-panel" aria-label="Biblioteca de referências">
+        <div className="panel-heading"><div><p className="section-label">REFERÊNCIAS</p><h2>Encontre uma base</h2></div><span>{options.length} opções</span></div>
+        <label className="search"><span>⌕</span><input aria-label="Buscar referência" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Buscar alteração, estrutura ou região" /></label>
+        <div className="filter-row" aria-label="Filtrar por origem">
+          {["Todos", "Minha biblioteca", "Essencial", "Ebook"].map((item) => <button type="button" className={source === item ? "active" : ""} key={item} onClick={() => setSource(item)}>{item}</button>)}
+        </div>
+        <div className="filter-row regions" aria-label="Filtrar por região">
+          {regions.map((item) => <button type="button" className={region === item ? "active" : ""} key={item} onClick={() => setRegion(item)}>{item}</button>)}
+        </div>
+        <div className="reference-list">
+          {options.map((item) => {
+            const isAdded = selected.some((selectedItem) => selectedItem.id === item.id);
+            return <article className="reference" key={item.id}>
+              <div><span>{item.source} · {item.region}</span><h3>{item.title}</h3><p>{item.text}</p></div>
+              <button type="button" disabled={isAdded} onClick={() => addSuggestion(item)}>{isAdded ? "Adicionado" : "Adicionar"}</button>
+            </article>;
+          })}
+        </div>
+      </section>
+
+      <section className="composer" aria-label="Compositor de impressões">
+        <div className="panel-heading"><div><p className="section-label">RASCUNHO</p><h2>Impressões diagnósticas</h2></div><span>{selected.length} item(ns)</span></div>
+        <p className="composer-help">As referências entram como sugestões. Edite cada uma antes de copiar.</p>
+        <label className="free-entry">Adicionar uma impressão livre<textarea value={newImpression} onChange={(event) => setNewImpression(event.target.value)} placeholder="Ex.: Achados compatíveis com..." /><button type="button" onClick={addFreeText}>Adicionar ao rascunho</button></label>
+        <div className="selected-list">
+          {selected.length === 0 ? <div className="empty"><b>Comece pela biblioteca.</b><p>Selecione um modelo ou escreva uma impressão livre.</p></div> : selected.map((item, index) => <article className="selected-item" key={item.id}>
+            <div className="selected-title"><span>{String(index + 1).padStart(2, "0")}</span><p>{item.title}<small>{item.source}</small></p><button type="button" aria-label={`Remover ${item.title}`} onClick={() => setSelected((current) => current.filter((selectedItem) => selectedItem.id !== item.id))}>×</button></div>
+            <textarea aria-label={`Texto de ${item.title}`} value={item.text} onChange={(event) => updateSelected(item.id, event.target.value)} />
+          </article>)}
+        </div>
+        <label className="comments">Comentários <span>opcional, aparece abaixo das impressões</span><textarea value={comments} onChange={(event) => setComments(event.target.value)} placeholder="Recomendações, limitações ou acompanhamento quando pertinentes." /></label>
+      </section>
+
+      <section className="preview" aria-label="Prévia do texto">
+        <div className="panel-heading"><div><p className="section-label">PRÉVIA</p><h2>Pronto para revisar</h2></div></div>
+        <pre>{output}</pre>
+        <div className="actions"><button type="button" className="secondary" onClick={() => { const blob = new Blob([output], { type: "text/plain" }); const link = document.createElement("a"); link.href = URL.createObjectURL(blob); link.download = "impressoes-diagnosticas.txt"; link.click(); URL.revokeObjectURL(link.href); }}>Baixar .txt</button><button type="button" className="primary" onClick={copy}>{copied ? "Copiado" : "Copiar texto"}</button></div>
+        <p className="disclaimer">Ferramenta de apoio à redação. A interpretação e a responsabilidade técnica permanecem com o médico-veterinário.</p>
+      </section>
     </section>
   </main>;
 }
