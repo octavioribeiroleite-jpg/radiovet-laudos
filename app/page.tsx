@@ -74,6 +74,41 @@ const clinicalDetails: Record<string, Partial<Reference>> = {
     source: "Thrall, 6ª ed., cap. 11, pp. 398-399.",
     visual: { src: "/reference-images/hemivertebra-thrall-p399.png", alt: "Radiografia e reconstrução tridimensional de coluna torácica com hemivértebras", caption: "Múltiplas hemivértebras torácicas alteram a morfologia e o alinhamento vertebral.", source: "Thrall, 6ª ed., Fig. 11-8, p. 399." },
   },
+  "Displasia Coxofemoral": {
+    impression: "Achados radiográficos compatíveis com displasia coxofemoral.",
+    appearance: ["Subluxação ou incongruência coxofemoral.", "Cobertura acetabular reduzida da cabeça femoral.", "Remodelamento da cabeça e do colo femoral quando há doença degenerativa associada."],
+    differentials: ["Frouxidão articular sem osteoartrose.", "Posicionamento inadequado simulando incongruência."],
+    source: "Thrall, 6ª ed., cap. 18, pp. 729-730.",
+    visual: { src: "/reference-images/displasia-coxofemoral-thrall-p730.png", alt: "Estudo radiográfico PennHIP de articulações coxofemorais", caption: "As projeções em compressão e distração evidenciam e quantificam a subluxação coxofemoral.", source: "Thrall, 6ª ed., Fig. 18-35, p. 730." },
+  },
+  "Luxação Patelar": {
+    impression: "Deslocamento patelar compatível com luxação patelar.",
+    appearance: ["Patela fora do sulco troclear.", "Deslocamento e rotação em relação ao eixo normal do membro.", "Aumento aparente da dimensão craniocaudal da patela na projeção lateral."],
+    differentials: ["Posicionamento ou rotação inadequados.", "Subluxação patelar intermitente."],
+    source: "Thrall, 6ª ed., cap. 19, pp. 772-773.",
+    visual: { src: "/reference-images/luxacao-patelar-thrall-p773.png", alt: "Radiografia de joelho com luxação patelar lateral", caption: "A patela está deslocada lateralmente e sobreposta à tróclea femoral.", source: "Thrall, 6ª ed., Fig. 19-6, p. 773." },
+  },
+  "Efusão/ Derrame Pleural": {
+    impression: "Achados radiográficos compatíveis com efusão pleural.",
+    appearance: ["Alargamento das fissuras interlobares.", "Retração das margens pulmonares.", "Aumento difuso da radiopacidade torácica e perda variável do contorno cardíaco."],
+    differentials: ["Espessamento pleural.", "Artefato conformacional da parede torácica.", "Massa pleural ou extrapleural."],
+    source: "Thrall, 6ª ed., cap. 31, pp. 1222-1235.",
+    visual: { src: "/reference-images/efusao-pleural-thrall-p1227.png", alt: "Radiografias torácicas de cão com efusão pleural moderada", caption: "Fissuras interlobares, retração pulmonar e aumento da radiopacidade variam conforme a projeção.", source: "Thrall, 6ª ed., Fig. 31-6, p. 1227." },
+  },
+  "Pneumotórax": {
+    impression: "Achados radiográficos compatíveis com pneumotórax.",
+    appearance: ["Ar livre no espaço pleural.", "Retração dos lobos pulmonares em relação à parede torácica.", "Separação entre coração e esterno e aumento da radiotransparência pleural."],
+    differentials: ["Dobras cutâneas.", "Tórax muito profundo ou hipovolemia simulando elevação cardíaca.", "Bolhas ou cistos pulmonares."],
+    source: "Thrall, 6ª ed., cap. 31, pp. 1236-1245.",
+    visual: { src: "/reference-images/pneumotorax-thrall-p1238.png", alt: "Radiografias torácicas de cão com pneumotórax moderado", caption: "O ar pleural causa retração pulmonar dorsocaudal e separação entre coração e esterno.", source: "Thrall, 6ª ed., Fig. 31-16, p. 1238." },
+  },
+  "Corpo Estranho Intestinal": {
+    impression: "Achados radiográficos sugestivos de corpo estranho gastrointestinal com possível obstrução.",
+    appearance: ["Dilatação focal ou segmentar de alças intestinais.", "Conteúdo gasoso e de tecido mole com aspecto mosqueado.", "Plicatura intestinal quando há componente linear."],
+    differentials: ["Íleo funcional.", "Enterite focal.", "Massa ou estenose intestinal."],
+    source: "Thrall, 6ª ed., cap. 44, p. 1700.",
+    visual: { src: "/reference-images/corpo-estranho-thrall-p1700.png", alt: "Radiografias abdominais com corpo estranho gastrointestinal linear", caption: "A redistribuição do gás evidencia corpo estranho e plicatura do duodeno proximal.", source: "Thrall, 6ª ed., Fig. 44-7, p. 1700." },
+  },
 };
 
 function directImpression(title: string, raw: string) {
