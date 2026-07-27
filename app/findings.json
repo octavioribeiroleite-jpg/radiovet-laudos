@@ -1,0 +1,1087 @@
+[
+  {
+    "region": "Crânio",
+    "title": "Hidrocefalia",
+    "text": "Visibiliza-se abaulamento da calota craniana, adelgaçamento de corticais, aumento homogêneo da radiopacidade encefálica e evidenciação da fontanela aberta - Imagens que sugerem hidrocefalia."
+  },
+  {
+    "region": "Crânio",
+    "title": "Luxação da Articulação Temporomandibular",
+    "text": "Perda da relação articular entre o processo condilar da mandíbula e o processo retroarticular do osso temporal esquerdo/direito, com deslocamento rostrodorsal do corpo mandibular - Sugestivo de luxação temporomandibular."
+  },
+  {
+    "region": "Crânio",
+    "title": "Displasia do Occipital",
+    "text": "Nota-se extensão dorsal do forame magno - Sugestivo de malformação congênita relacionada a displasia do occipital."
+  },
+  {
+    "region": "Crânio",
+    "title": "Hiperostose da Calota Craniana",
+    "text": "Proliferação óssea lisa em graus variáveis e em diversos ossos da calota craniana - Pode estar relacionado a hiperostose da calota craniana."
+  },
+  {
+    "region": "Crânio",
+    "title": "Cisto Dentígero",
+    "text": "Nota-se área de radiopacidade reduzida, contornos regulares e margens bem definidas em torno do dente permanente X - Considerar a possibilidade de císto dentígero."
+  },
+  {
+    "region": "Crânio",
+    "title": "Doença Periodontal",
+    "text": "Aumento do espaço periodontal caracterizado por osteólise em osso alveolar do dente X - Relacionado a doença periodontal."
+  },
+  {
+    "region": "Crânio",
+    "title": "Abscesso Periapical",
+    "text": "Evidencia-se halo radiotransparente arredondado e delimitado em torno da raiz do dente X, podendo estar associado a aumento de volume dos tecidos moles adjacentes - Sugestivo de abscesso periapical."
+  },
+  {
+    "region": "Crânio",
+    "title": "Disjunção da Sínfise Mentoniana",
+    "text": "Desalinhamento de sínfise mentoniana caracterizado por linha radiotransparente e desvio medial/lateral de hemimandíbula esquerda/direita - Compatível com disjunção de sínfise mentoniana (também conhecida como sínfise mandibular ou articulação intermandibular)."
+  },
+  {
+    "region": "Crânio",
+    "title": "Fissura/ Fratura Dentária",
+    "text": "Linha radiotransparente em dente X, podendo estar relacionado a ausência de parte do mesmo - Pode estar relacionado a fissura/ fratura dentária."
+  },
+  {
+    "region": "Crânio",
+    "title": "Otite Média/ Interna",
+    "text": "Evidencia-se aumento da radiopacidade e espessamento de bula timpânica esquerda/direita - Sugestivo de otite média unilateral/bilateral, secundária a otite externa crônica."
+  },
+  {
+    "region": "Crânio",
+    "title": "Tumor do Canal Auditivo",
+    "text": "Aumento da radiopacidade em canal auditivo externo esquerdo/direito, associado à lise óssea da calota craniana adjacente a região - Pode estar relacionado a processo neoplásico em canal auditivo, a esclarecer (Sugere-se demais exames complementares para melhor elucidação diagnóstica)."
+  },
+  {
+    "region": "Crânio",
+    "title": "Otite Externa",
+    "text": "Nota-se aumento da radiopacidade e obliteração de conduto auditivo externo esquerdo/direito - Relacionado a otite externa unilteral/bilateral."
+  },
+  {
+    "region": "Crânio",
+    "title": "Sialolitíase",
+    "text": "Visibiliza-se pelo menos X estruturas arredondadas e de radiopacidade mineral em topografia de glândula salivar esquerda/direita, podendo estar associado a aumento de volume dos tecidos moles adjacentes - Pode estar relacionado a sialolitíase."
+  },
+  {
+    "region": "Crânio",
+    "title": "Mandibulectomia",
+    "text": "Ausência parcial/total do ramo mandibular esquerdo/direito - Relacionado a mandibulectomia."
+  },
+  {
+    "region": "Crânio",
+    "title": "Condilectomia",
+    "text": "Ausência do processo condilar da mandíbula esquerda/direita - Relacionado a condilectomia."
+  },
+  {
+    "region": "Crânio",
+    "title": "Fratura Mandíbular",
+    "text": "Presença de linha de fratura completa em corpo e/ou ramo mandibular esquerdo/direito, com desvio dorsal/ventral do eixo ósseo distal - Sugestivo de fratura mandibular."
+  },
+  {
+    "region": "Crânio",
+    "title": "Osteopatia Craniomandibular",
+    "text": "Proliferação óssea irregular unilateral/bilateral, mais evidente em região de mandíbula, bula timpânica e osso temporal - Considerar a possibilidade de osteopatia craniomandibular."
+  },
+  {
+    "region": "Crânio",
+    "title": "Processo Inflamatório/ Infeccioso Nasal",
+    "text": "Aumento da radiopacidade em cavidade nasal e seios frontais, sem/com evidências de destruição do osso vômer - A princípio, sugestivo de processo inflamatório/ infeccioso (A critério clínico, sugere-se acompanhamento radiográfico)."
+  },
+  {
+    "region": "Crânio",
+    "title": "Tumor Nasal",
+    "text": "Nota-se aumento da radiopacidade em cavidade nasal esquerda/direita, associado a processo lítico do osso vômer e perda da definição das conchas nasais - Imagens que sugerem lesão agressiva, podendo estar relacionado a processo neoplásico (Sugere-se demais exames complementares para melhor elucidação diagnóstica)."
+  },
+  {
+    "region": "Cervical",
+    "title": "Prolongamento de Palato Mole",
+    "text": "Palato mole em maior evidência, ultrapassando os limites da epiglote - Sugestivo de prolongamento de palato mole."
+  },
+  {
+    "region": "Cervical",
+    "title": "Processo Inflamatório/ Edema de Palato Mole",
+    "text": "Aumento de radiopacidade e espessamento de palato mole - Relacionado a edema/ processo inflamatório."
+  },
+  {
+    "region": "Cervical",
+    "title": "Estenose Nasofaríngea",
+    "text": "Aumento de radiopacidade tecidos moles em topografia de lúmen nasofaríngeo - Imagens que sugerem estenose nasofaríngea."
+  },
+  {
+    "region": "Cervical",
+    "title": "Massa Traqueal",
+    "text": "Visibiliza-se estrutura arredondada e de radiopacidade água localizada em topografia de trajeto traqueal cervical/torácico, advinda da parede dorsal/ventral e projetando-se ao lúmen - Pode estar relacionado a neoformação traqueal (Sugere-se a realização de demais exames complemetares para melhor avaliação)."
+  },
+  {
+    "region": "Cervical",
+    "title": "Ruptura Traqueal",
+    "text": "Nota-se descontinuidade da parede ventral/dorsal do segmento traqueal cervical/torácico, associado a presença de conteúdo gasoso adjacente e também disperso em região de mediastino cranial, caracterizando pneumomediastino - Imagens que sugerem ruptura traqueal."
+  },
+  {
+    "region": "Cervical",
+    "title": "Fratura/ Luxação dos Ossos Hióides",
+    "text": "Presença de linha de fratura e/ou deslocamento do osso hióide X, associado a aumento de volume dos tecidos moles adjacentes - Sugestivo de fratura e/ou luxação dos ossos hióides, secundário a processo traumático."
+  },
+  {
+    "region": "Cervical",
+    "title": "Hipoplasia Laríngea",
+    "text": "Evidencia-se diminuição do diâmetro da laringe pela projeção laterolateral, associado a redução do tamanho da faringe com espessamento e prolongamento de palato mole - Considerar a possibilidade de hipoplasia laríngea."
+  },
+  {
+    "region": "Coluna",
+    "title": "Hemivértebra",
+    "text": "Alteração morfológica do corpo vertebral X, apresentando formato de \"cunha\" pela projeção laterolateral e \"borboleta\" pela projeção ventrodorsal - Relacionado a hemivértebra."
+  },
+  {
+    "region": "Coluna",
+    "title": "Vértebra de Transição",
+    "text": "Corpo vertebral X apresentando características morfológicas do segmento vertebral adjacente, podendo estar relacionado a toracolização de C7, lombarização de T13 ou sacralização de L7 - Sugestivo de vértebra transicional."
+  },
+  {
+    "region": "Coluna",
+    "title": "Espinha Bífida",
+    "text": "Nota-se divisão do processo espinhoso da vértebra X, sendo melhor visibilizado pela projeção ventrodorsal - Imagens que sugerem espinha bífida."
+  },
+  {
+    "region": "Coluna",
+    "title": "Vértebras em Bloco",
+    "text": "Evidencia-se fusão de dois ou mais corpos vertebrais em segmento X da coluna vertebral - Relacionado a vértebras em bloco."
+  },
+  {
+    "region": "Coluna",
+    "title": "Espondilomielopatia Cervical",
+    "text": "Desvio dorsal da face articular cranial de C7 em relação a face articular caudal de C6, associado a espondilose ventral e evidente diminuição do espaço intervertebral - Sugestivo de espondilomielopatia cervical, também chamada de síndrome de Wobbler."
+  },
+  {
+    "region": "Coluna",
+    "title": "Instabilidade Lombossacra",
+    "text": "Nota-se espondilolistese caractetizada por desvio ventral de S1 em relação a L7, associado a espondilose deformante ventral, diminuição do espaço intervertebral e esclerose da placa terminal caudal de L7 e cranial de S1 - Imagens que sugerem instabilidade lombossacra."
+  },
+  {
+    "region": "Coluna",
+    "title": "Agenesia/ Hipoplasia do Processo Odontoide",
+    "text": "Processo odontoide do áxis ausente ou de tamanho reduzido, sendo melhor visibilizado pela projeção ventrodorsal - Relacionado a agenesia ou hipoplasia do processo odontoide."
+  },
+  {
+    "region": "Coluna",
+    "title": "Espondilolistese",
+    "text": "Desvio ventral/dorsal da placa terminal caudal do corpo vertebral X em relação a placa terminal cranial do corpo vertebral de X - Espondilolistese."
+  },
+  {
+    "region": "Coluna",
+    "title": "Subluxação Atlantoaxial",
+    "text": "Deslocamento dorsal do áxis (C2) em relação ao atlas (C1), não sendo possível descartar o acometimento do canal medular - Considerar a possibilidade de subluxação atlantoaxial, podendo estar relacionada a agenesia, hipoplasia, mal formação ou fratura do processo odontoide."
+  },
+  {
+    "region": "Coluna",
+    "title": "Hiperostose Esquelética Idiopática Difusa",
+    "text": "Proliferação óssea extensiva e linear ao longo da região ventrolateral do segmento vertebral X - Pode estar relacionado a hiperostose esquelética idiopática difusa (DISH)."
+  },
+  {
+    "region": "Coluna",
+    "title": "Luxação Vertebral",
+    "text": "Desalinhamento vertebral caracterizado por perda da relação articular entre os corpos vertebrais de X e X, com desvio dorsal/ventral a esquerda/direita do eixo ósseo distal - Relacionado a luxação vertebral."
+  },
+  {
+    "region": "Coluna",
+    "title": "Fratura Vertebral",
+    "text": "Desalinhamento vertebral caracterizado por linha de fratura completa em corpo vertebral de X, com deslocamento dorsal/ventral a esquerda/direita do eixo ósseo distal, não sendo possível descartar o acometimento do canal medular - Compatível com fratura vertebral."
+  },
+  {
+    "region": "Coluna",
+    "title": "Espondilite",
+    "text": "Diminuição da radiopacidade e reação periosteal ventral do corpo vertebral de X - Considerar a possibilidade de espondilite."
+  },
+  {
+    "region": "Coluna",
+    "title": "Discoespondilite",
+    "text": "Evidente diminuição do espaço intervertebral, associado a processo lítico e esclerótico, com irregularidade das placas terminais vertebrais e presença de proliferação óssea ventral entre os corpos vertebrais de X e X - Imagens que sugerem discoespondilite (Sugere-se correlacionar com histórico e demais achados clínicos do paciente)."
+  },
+  {
+    "region": "Coluna",
+    "title": "Fisite Vertebral",
+    "text": "Visibiliza-se lise óssea em região de linha fisária em vértebra X, podendo progredir para diminuição do espaço intervertebral e esclerose das faces vertebrais - Pode estar relacionado a fisite vertebral."
+  },
+  {
+    "region": "Coluna",
+    "title": "Processo Neoplásico",
+    "text": "Processo lítico e proliferativo em corpo vertebral de X, associado a adelgaçamento de cortical, podendo evoluir para fratura patológica - Pode estar relacionado a processo neoplásico."
+  },
+  {
+    "region": "Coluna",
+    "title": "Osteofitose",
+    "text": "Proliferação osteofítica ventral/dorsal/lateral entre os corpos vertebrais de X e X - Osteófito."
+  },
+  {
+    "region": "Coluna",
+    "title": "Espondilose",
+    "text": "Proliferação óssea na margem ventral/dorsal/lateral entre os corpos vertebrais de X e X, secundária à instabilidade vertebral - Espondilose deformante."
+  },
+  {
+    "region": "Coluna",
+    "title": "Doença do Disco Intervertebral",
+    "text": "Diminuição do espaço intervertebral entre os corpos vertebrais de X e X, associado à mineralização do disco intervertebral, opacificação de forame intervertebral e proliferações osteofíticas ventrais - Compatível com doença do disco intervertebral."
+  },
+  {
+    "region": "Coluna",
+    "title": "Protrusão/ Extrusão Discal",
+    "text": "Diminuição do forame e do espaço intervertebral entre os corpos vertebrais de X e X, associado a aumento da radiopacidade em topografia de forame intervertebral - Imagens que sugerem protrusão ou extrusão do disco intervertebral (Sugere-se a realização de tomografia computadorizada para melhor elucidação diagnóstica)."
+  },
+  {
+    "region": "Coluna",
+    "title": "Cifose",
+    "text": "Desvio angular dorsal cifótico do segmento cervicotorácico/toracolombar - Cifose."
+  },
+  {
+    "region": "Coluna",
+    "title": "Lordose",
+    "text": "Desvio angular ventral lordótico do segmento cervicotorácico/toracolombar - Lordose."
+  },
+  {
+    "region": "Coluna",
+    "title": "Escoliose",
+    "text": "Desvio angular escoliótico do segmento cervicotorácico/toracolombar - Escoliose."
+  },
+  {
+    "region": "Coluna",
+    "title": "Pectus Excavatum",
+    "text": "Deslocamento dorsal do esterno - Alteração congênita conhecida como pectus excavatum."
+  },
+  {
+    "region": "Coluna",
+    "title": "Pectus Carinatum",
+    "text": "Deslocamento ventral do esterno - Alteração congênita conhecida como pectus carinatum."
+  },
+  {
+    "region": "Membros",
+    "title": "Fratura Fisária",
+    "text": "Aumento da interlinha radiográfica em região fisária do membro X - Sugestivo de fratura fisária, sendo classificada de acordo com Salter-Harris:"
+  },
+  {
+    "region": "Membros",
+    "title": "Fratura em Ossos Longos",
+    "text": "Descontinuidade óssea caracterizada por linha radiotransparente de fratura, classificadas quanto a: - Tipo I: fratura em linha fisária; - Tipo II: fratura em linha fisária e metáfise; - Tipo III: fratura em linha fisária e epífise; - Tipo IV: fratura em linha fisária, metáfise e epífise; - Tipo V: fratura por compressão da linha fisária. - Exposição: fechada ou aberta. - Extensão: incompleta ou completa. - Número de linhas de fratura: simples, segmentar ou cominutiva. - Direção: transversa, oblíqua ou espiral. - Localização: epífise proximal ou distal, metáfise proximal ou distal e diáfise proximal, média ou distal. - Desvio do eixo ósseo distal: cranial ou caudal, medial ou lateral e proximal ou distal."
+  },
+  {
+    "region": "Membros",
+    "title": "Esquírola/ Sequestro Ósseo",
+    "text": "Nota-se fragmento ósseo esclerótico e pontiagudo adjacente a fratura do membro X - Sequestro ósseo."
+  },
+  {
+    "region": "Membros",
+    "title": "Não União de Fratura",
+    "text": "Nota-se afastamento dos bordos de fratura e arredondamento das suas extremidades, porém sem evidências de consolidação ou formação de calo ósseo - Sugestivo de não união de fratura."
+  },
+  {
+    "region": "Membros",
+    "title": "Má União de Fratura",
+    "text": "Evidente proliferação óssea irregular adjacente a região de fratura, associado a sutil linha radiotransparente em permeio - Má união de fratura."
+  },
+  {
+    "region": "Membros",
+    "title": "Consolidação Óssea",
+    "text": "Proliferação óssea de bordos arredondados associado a espessamento de corticais adjacente a sutil linha de fratura - Fratura em consolidação."
+  },
+  {
+    "region": "Membros",
+    "title": "Calo Ósseo",
+    "text": "Proliferação óssea de bordos arredondados adjacente a região em estudo, sem evidências de linha radiotransparente em permeio - Relacionado a formação de calo ósseo."
+  },
+  {
+    "region": "Membros",
+    "title": "Fratura de Monteggia",
+    "text": "Linha de fratura simples, completa e oblíqua em diáfise proximal da ulna, associado a perda da relação articular umeroradial, com desvio cranial do rádio em relação ao úmero - Relacionado a fratura proximal da ulna com luxação umeroradial, denominada fratura de Monteggia."
+  },
+  {
+    "region": "Membros",
+    "title": "Fragmentação/ Fratura de Sesamoide",
+    "text": "Visibilizam-se diminutas estruturas radiopacas e arredondadas adjacentes ao sesamoide X ou linha radiotransparente em sesamoide X - Fragmentação ou fratura de sesamoide."
+  },
+  {
+    "region": "Membros",
+    "title": "Luxação Patelar",
+    "text": "Desvio medial/lateral de patela esquerda/direita em relação ao respectivo sulco troclear - Compatível com luxação de patela."
+  },
+  {
+    "region": "Membros",
+    "title": "Ruptura do Ligamento Cruzado Cranial",
+    "text": "Desvio cranial do platô tibial em relação aos respectivos côndilos femorais, associado a discreta opacificação do coxim gorduroso infrapatelar e deslocamento distal do sesamoide poplíteo - Pode estar relacionado a ruptura parcial/total do ligamento cruzado cranial."
+  },
+  {
+    "region": "Membros",
+    "title": "Osteoartrite",
+    "text": "Visibilizam-se projeções osteofíticas, processo lítico e esclerótico, além de remodelamento ósseo adjacente a articulação X - Pode estar relacionado a osteoartrite."
+  },
+  {
+    "region": "Membros",
+    "title": "Artrite Séptica",
+    "text": "Importante processo lítico articular e do osso subcondral, associado a aumento da radiopacidade da região sinovial (efusão), com aumento de volume e radiopacidade dos tecidos moles adjacentes - Considerar a possibilidade de artrite séptica."
+  },
+  {
+    "region": "Membros",
+    "title": "Artrite Reumatoide/ Poliartrite",
+    "text": "Evidencia-se lise das articulações X e dos respectivos ossos subcondrais, diminuição do espaço articular e proliferações osteofíticas adjacentes, podendo ou não estar associado a subluxação/luxação articular secundária - Considerar a possibilidade de artrite reumatoide ou poliartrite (Sugere-se correlacionar com exame físico e demais exames complementares)."
+  },
+  {
+    "region": "Membros",
+    "title": "Efusão Articular",
+    "text": "Área triangular e de radiopacidade elevada em topografia de coxim gorduroso infrapatelar da articulação femorotibiopatelar - Efusão articular."
+  },
+  {
+    "region": "Membros",
+    "title": "Osteoartrose",
+    "text": "Presença de proliferações osteofítica periarticulares a articulação X - Relacionado a osteoartrose, também chamada de doença articular degenerativa."
+  },
+  {
+    "region": "Membros",
+    "title": "Osteocondrose/ Osteocondrite Dissecante",
+    "text": "Visibiliza-se discreta irregularidade e perda da radiopacidade em superfície do osso subcondral X, com/sem evidências de diminuta estrutura radiopaca adjacente (\"flap\") - Imagens que sugerem osteocondrose/ osteocondrite dissecante (Sugere- se a realização de tomografia computadorizada para melhor elucidação diagnóstica)."
+  },
+  {
+    "region": "Membros",
+    "title": "Osteopatia Hipertrófica",
+    "text": "Nota-se reação periosteal em paliçada bilateralmente em membros X - Pode estar relacionado a osteopatia hipertrófica (Sugere-se correlacionar a exame radiográfico de tórax e ultrassonografia abdominal)."
+  },
+  {
+    "region": "Membros",
+    "title": "Mineralização Meniscal",
+    "text": "Presença de estrutura de radiopacidade elevada localizada em topografia de menisco da articulação femorotibiopatelar esquerda/direita - Sugestivo de mineralização meniscal."
+  },
+  {
+    "region": "Membros",
+    "title": "Osteofitose",
+    "text": "Proliferações osteofíticas em região periarticular a articulação X - Compatível com osteófitos, relacionados a processo articular degenerativo."
+  },
+  {
+    "region": "Membros",
+    "title": "Enteseofitose",
+    "text": "Proliferações enteseofíticas em região de inserção de tendão ou ligamento - Compatível com enteseófitos, podendo estar relacionado a tendinopatia."
+  },
+  {
+    "region": "Membros",
+    "title": "Agenesia/ Hipoplasia Óssea",
+    "text": "Ausência ou diminuição do tamanho e/ou comprimento do membro X - Anomalia congênita relacionada a agenesia ou hipoplasia óssea."
+  },
+  {
+    "region": "Membros",
+    "title": "Tenossinovite do Bicipital",
+    "text": "Visibiliza-se esclerose e proliferação enteseofítica em sulco intertubercular umeral esquerdo/direito, associado a aumento da radiopacidade em região sinovial (efusão) e calcificação do tendão do bíceps - Imagens que sugerem tenossinovite do bicipital."
+  },
+  {
+    "region": "Membros",
+    "title": "Cisto Ósseo",
+    "text": "Presença de área radiotransparente e circular, de margens definidas e regulares, localizada em osso subcondral do membro X - Sugestivo de cisto ósseo."
+  },
+  {
+    "region": "Membros",
+    "title": "Processo Inflamatório em Partes Moles",
+    "text": "Nota-se aumento de volume e radiopacidade de tecidos moles adjacente ao membro X, sem/com evidências de acometimento ósseo - Sugestivo de edema/ processo inflamatório a esclarecer."
+  },
+  {
+    "region": "Membros",
+    "title": "Panosteíte Eosinofílica/ Enostose",
+    "text": "Área de radiopacidade elevada em região de canal medular da diáfise do membro X, podendo estar associado a proliferação periosteal regular ou lamelar adjacente - Imagens que sugerem panosteíte."
+  },
+  {
+    "region": "Membros",
+    "title": "Exostose Cartilaginosa Múltipla",
+    "text": "Importante proliferação óssea de contornos irregulares e margens suaves, não invasiva e de radiopacidade mista devido a presença de cartilagem radiotransparente entremeada, geralmente acomentendo dois ou mais ossos - Sugestivo de exostose cartilaginosa múltipla."
+  },
+  {
+    "region": "Membros",
+    "title": "Retenção do Núcleo Cartilaginoso",
+    "text": "Visibiliza-se área radiotransparente e com formato de cone em membro X, sem/com evidências de área esclerótica adjacente, podendo ou não estar relacionado a deformidade angular ou doença articular degenerativa - Considerar a possibilidade de retenção do núcleo cartilaginoso."
+  },
+  {
+    "region": "Membros",
+    "title": "Displasia de Cotovelo",
+    "text": "Incongruência da articulação umeroradioulnar esquerda/direita, caracterizada por aumento do espaço articular entre a incisura troclear da ulna e os côndilos umerais, podendo estar associado a arrasamento do olécrano, remodelamento dos côndilos umerais, esclerose do osso subcondral e proliferações osteofíticas periarticulares - Sugestivo de displasia de cotovelo."
+  },
+  {
+    "region": "Membros",
+    "title": "Fragmentação do Processo Coronoide Medial",
+    "text": "Visibiliza-se linha radiotransparente e irregular com separação parcial/total da margem cranial do processo coronoide medial - Pode estar relacionado a fragmentação do processo coronoide medial (Sugere-se a realização de exame tomográfico para conclusão diagnóstica)."
+  },
+  {
+    "region": "Membros",
+    "title": "Não União do Processo Ancôneo",
+    "text": "Nota-se linha radiotransparente e irregular com separação parcial/total do processo ancôneo em relação ao olécrano - Considerar a possibilidade de não união do processo ancôneo (Sugere-se a realização de exame tomográfico para melhor elucidação diagnóstica)."
+  },
+  {
+    "region": "Membros",
+    "title": "Fratura Condilar Umeral",
+    "text": "Linha de fratura em topografia de côndilo umeral medial/lateral do membro esquerdo/direito - Relacionado a fratura condilar umeral."
+  },
+  {
+    "region": "Membros",
+    "title": "Osteocondrose do Côndilo Medial Umeral",
+    "text": "Presença de discreta concavidade e processo lítico da superfície do côndilo medial do úmero, com/sem evidências de diminuta estrutura radiopaca adjacente (\"flap\") - Imagens que sugerem osteocondrose/ osteocondrite dissecante do côndilo medial do úmero (Sugere-se a realização de exame tomográfico para melhor diagnóstico)."
+  },
+  {
+    "region": "Membros",
+    "title": "Necrose Isquêmica Radioulnar",
+    "text": "Visibiliza-se lesão lítica em diáfise média da ulna, associado a área esclerótica e perda da definição da cortical óssea, com discreta reação periosteal adjacente - Considerar a possibilidade de necrose isquêmica radioulnar (RUIN)."
+  },
+  {
+    "region": "Membros",
+    "title": "Fechamento Precoce do Disco Epifisal de Ulna",
+    "text": "Evidencia-se fechamento da região fisária distal da ulna esquerda/direita e consequente encurtamento com desvio angular cranial do rádio - Sugestivo de fechamento precoce do disco epifisal da ulna."
+  },
+  {
+    "region": "Membros",
+    "title": "Ectrodactilia",
+    "text": "Malformação óssea caracterizada por separação dos membros torácicos, podendo estar relacionado a hipoplasia ou aplasia dos ossos e demais alterações - Alteração congênita conhecida como ectrodactilia."
+  },
+  {
+    "region": "Membros",
+    "title": "Luxação de Cotovelo",
+    "text": "Perda total da relação articular entre os côndilos umerais, cabeça radial e incisura troclear da ulna, associado a desvio X de rádio e ulna em relação ao úmero - Compatível com luxação umeroradioulnar."
+  },
+  {
+    "region": "Membros",
+    "title": "Polimelia",
+    "text": "Evidencia-se membro X de aspecto supranumerário - Polimelia, sendo a polidactilia a mais comum."
+  },
+  {
+    "region": "Membros",
+    "title": "Túnel Cirúrgico",
+    "text": "Área radiotransparente e de formato tubular perpendicularmente ao membro X - Sugestivo de túnel cirúrgico secundário a osteossíntese."
+  },
+  {
+    "region": "Membros",
+    "title": "Metalose",
+    "text": "Área radiotransparente em torno do implante metálico, associado a reação periosteal e aumento de volume e radiopacidade de tecidos moles adjacentes - Imagens que sugerem metalose."
+  },
+  {
+    "region": "Membros",
+    "title": "Osteopetrose",
+    "text": "Nota-se perda do trabeculado ósseo habitual do membro X secundário ao aumento uniforme da radiopacidade óssea em região medular - Considerar a possibilidade de osteopetrose."
+  },
+  {
+    "region": "Membros",
+    "title": "Osteomielite",
+    "text": "Lesão óssea lítica e proliferativa em diáfise do membro X, associado a reação periosteal irregular adjacente - Pode estar relacionado a osteomielite (Sugere-se correlacionar com demais exames)."
+  },
+  {
+    "region": "Membros",
+    "title": "Processo Neoplásico Primário",
+    "text": "Lesão óssea focal, de aspecto lítico e proliferativo, em metáfise do membro X e não ultrapassando a interlinha radiográfica, associado a reação periosteal \"sun burst\" - Sugestivo de neoplasia primária. Neoplasia Óssea Metáfise Monostótica Não ultrasspassa a interlinha radiográfica Agressiva Reação periosteal \"sun burst\" Raça e idade são importantes Ostemielite Diáfise Poliostótica Ultrapassa a interlinha radiográfica Pouco agressiva Reação periosteal em paliçada ou colunar Sem predileção"
+  },
+  {
+    "region": "Membros",
+    "title": "Hiperparatireoidismo Secundário Nutricional",
+    "text": "Evidencia-se diminuição generalizada da radiopacidade óssea (osteopenia), associado a adelgaçamento de corticais - Sugestivo de hiperparatireoidismo secundário nutricional."
+  },
+  {
+    "region": "Membros",
+    "title": "Hiperparatireoidismo Secundário Renal",
+    "text": "Diminuição da radiopacidade dos ossos do crânio, associada a adelgaçamento de corticais e perda da definição da lâmina dura da mandíbula, assumindo aspecto de \"dentes flutuantes\", conhecido como mandíbula de borracha - Imagens que sugerem hiperparatireoidismo secundário renal."
+  },
+  {
+    "region": "Membros",
+    "title": "Hipervitaminose A",
+    "text": "Nota-se importante espondilose anquilosante ventral em segmento X da coluna vertebral, associado a proliferação periosteal e osteofítica em articulações X - Considerar a possibilidade de hipervitaminose A."
+  },
+  {
+    "region": "Membros",
+    "title": "Osteodistrofia Hipertrófica",
+    "text": "Aguda: Visibilizam-se zonas radiotransparentes (osteólise) em região metafisária adjacentes às linhas fisárias dos membros, assumindo aspecto de \"fise dupla\" - Imagens que sugerem osteodistrofia hipertrófica aguda. Crônica: Nota-se esclerose em zona fisária e evidente proliferação periosteal em paliçada em região metafisária bilateralmente - Considerar a possibilidade de osteodistrofia hipertrófica crônica."
+  },
+  {
+    "region": "Membros",
+    "title": "Raquitismo",
+    "text": "Diminuição generalizada da radiopacidade óssea (osteopenia) associado a deformidade óssea, além de espessamento e irregularidade das cartilagens fisárias - Considerar a possibilidade de raquitismo."
+  },
+  {
+    "region": "Membros",
+    "title": "Mucopolissacaridose",
+    "text": "Alteração morfológica e assimetria dos corpos vertebrais do segmento X, associado a displasia epifiseal e diminuição generalizada da radiopacidade óssea (osteopenia) - Achados radiográficos podem estar relacionados a mucopolissacaridose."
+  },
+  {
+    "region": "Coxal",
+    "title": "Displasia Coxofemoral",
+    "text": "Incongruência articular coxofemoral caracterizada por deslocamento lateral das cabeças femorais em relação aos bordos dorsais acetabulares, associado a arrasamento de cavidade acetabular, remodelamento de cabeça femoral, espessamento de colo femoral, esclerose acetabular e projeções osteofíticas periarticulares bilateralmente - Compatível com displasia coxofemoral."
+  },
+  {
+    "region": "Coxal",
+    "title": "Subluxação Coxofemoral",
+    "text": "Perda parcial da relação articular entre cavidade acetabular esquerda/direita e respectiva cabeça femoral - Relacionado a subluxação coxofemoral."
+  },
+  {
+    "region": "Coxal",
+    "title": "Luxação Coxofemoral",
+    "text": "Perda total da relação articular entre cavidade acetabular esquerda/direita e respectiva cabeça femoral, com desvio dorsolateral do eixo ósseo distal - Sugestivo de luxação coxofemoral."
+  },
+  {
+    "region": "Coxal",
+    "title": "Displasia Fiseal Felina/ Epifisiólise",
+    "text": "Aumento da interlinha de crescimento do disco epifisário proximal femoral esquerdo/direito, associado a incongruência e deslocamento da epífise proximal, podendo estar relacionado a osteólise do colo femoral - Sugestivo de displasia fiseal felina."
+  },
+  {
+    "region": "Coxal",
+    "title": "Necrose Asséptica da Cabeça Femoral",
+    "text": "Alteração morfológica de cabeça e colo femoral esquerdo/direito, caracterizada por importante área de osteólise em cabeça femoral e osso subcondral, associado a achatamento e irregularidade da cabeça e colo, com proliferações osteofíticas periarticulares - Sugestivo de necrose asséptica da cabeça femoral, também chamada de doença de LeggCalvé-Perthes."
+  },
+  {
+    "region": "Coxal",
+    "title": "Disjunção Sacroilíaca",
+    "text": "Aumento da interlinha radiográfica caracterizada por deslocamento lateral de asa ilíaca esquerda/direita em relação ao sacro - Disjunção sacroilíaca."
+  },
+  {
+    "region": "Coxal",
+    "title": "Desvio Valgus",
+    "text": "Desvio angular com concavidade lateral da porção distal do fêmur - Desvio valgus."
+  },
+  {
+    "region": "Coxal",
+    "title": "Desvio Varus",
+    "text": "Desvio angular com concavidade medial da porção distal do fêmur - Desvio varus."
+  },
+  {
+    "region": "Coxal",
+    "title": "Desvio Procurvatum",
+    "text": "Desvio angular com concavidade caudal da porção distal do fêmur - Desvio procurvatum."
+  },
+  {
+    "region": "Coxal",
+    "title": "Desvio Retrocurvatum",
+    "text": "Desvio angular com concavidade cranial da porção distal do fêmur - Desvio retrocurvatum."
+  },
+  {
+    "region": "Tórax",
+    "title": "Senescência",
+    "text": "Discreta opacificação pulmonar de padrão intersticial difuso, com algumas paredes brônquicas em maior evidência - Pode estar relacionado a senescência (Sugere-se correlacionar com demais achados clínicos do paciente)."
+  },
+  {
+    "region": "Tórax",
+    "title": "Infiltrado Adiposo",
+    "text": "Opacificação pulmonar de padrão intersticial difuso, sendo mais evidente na projeção laterolateral - Pode estar relacionado ao escore corporal do paciente."
+  },
+  {
+    "region": "Tórax",
+    "title": "Processo Inflamatório/ Infeccioso",
+    "text": "Opacificação pulmonar de padrão intersticial difuso - Pode estar relacionado a processo inflamatório/ infeccioso (Correlacionar aos achados clínicos)."
+  },
+  {
+    "region": "Tórax",
+    "title": "Osteoma/ Metaplasia Óssea Pulmonar",
+    "text": "Visibilizam-se diminutas estruturas puntiformes e de radiopacidade elevada (mineralizações), sendo mais evidente em região ventral - Imagens que sugerem osteoma pulmonar, também conhecido como metaplasia óssea pulmonar."
+  },
+  {
+    "region": "Tórax",
+    "title": "Processo Neoplásico Primário",
+    "text": "Presença de estrutura arredondada, de contornos pouco definidos, radiopacidade água e aspecto homogêneo, medindo cerca de cm x cm e localizada em topografia de lobo pulmonar X - Imagens que sugerem neoplasia pulmonar (Sugere-se exame tomográfico para melhor diagnóstico)."
+  },
+  {
+    "region": "Tórax",
+    "title": "Processo Infeccioso Fúngico",
+    "text": "Opacificação pulmonar de padrão intersticial estruturado difuso, com diminutas e incontáveis estruturas arredondadas e de radiopacidade elevada dispersas pelo parênquima, medindo uma delas cerca de cm x cm - Sugestivo de processo infeccioso (Sugere-se a realização de demais exames complementares para melhor diagnóstico)."
+  },
+  {
+    "region": "Tórax",
+    "title": "Metástase Pulmonar",
+    "text": "Opacificação pulmonar de padrão intersticial estruturado, caracterizado pela presença de pelo menos X estruturas nodulares, de radiopacidade água e aspecto homogêneo, medindo a maior delas cerca de cm x cm e localizada em topografia de lobo pulmonar X, entre X e X espaços intercostais esquerdos/direitos - Sugestivo de nódulo metastático pulmonar."
+  },
+  {
+    "region": "Tórax",
+    "title": "Broncopatia/ Bronquite",
+    "text": "Opacificação pulmonar de padrão brônquico difuso, evidenciado pelo espessamento e/ou maior evidência das paredes brônquicas - Sugestivo de broncopatia/ bronquite."
+  },
+  {
+    "region": "Tórax",
+    "title": "Broncopneumonia",
+    "text": "Opacificação pulmonar de padrão misto, sendo intersticial, brônquico e alveolar, mais evidente em topografia de lobos pulmonares X - Imagens que sugerem broncopneumonia."
+  },
+  {
+    "region": "Tórax",
+    "title": "Bronquiectasia/ Bronquite Crônica",
+    "text": "Evidencia-se dilatação permanente do lúmen brônquico, sendo mais evidente em periferia dos lobos pulmonares - Relacionado a bronquiectasia/ bronquite crônica."
+  },
+  {
+    "region": "Tórax",
+    "title": "Asma",
+    "text": "Opacificação pulmonar de padrão brônquico associado a hiperinsuflação ou hipertransparência pulmonar, com aumento da distância entre silhueta cardíaca e diafragmática, assumindo aspecto de \"tenda\" - Compatível com processo asmático."
+  },
+  {
+    "region": "Tórax",
+    "title": "Broncolitíase",
+    "text": "Presença de diversas estruturas arredondadas e de radiopacidade mineral em topografia de trajetos brônquicos, medindo uma delas cerca de cm x cm - Pode estar relacionado a broncolitíases."
+  },
+  {
+    "region": "Tórax",
+    "title": "Pneumonia",
+    "text": "Opacificação pulmonar de padrão alveolar mais evidente em região cranioventral, caracterizada pela presença de broncogramas aéreos, obliteração da silhueta cardíaca e/ou fissuras interlobares - Pode estar relacionado a pneumonia."
+  },
+  {
+    "region": "Tórax",
+    "title": "Edema Pulmonar",
+    "text": "Opacificação pulmonar de padrão alveolar mais evidente em região peri-hilar e dorsocaudal, caracterizada pela presença de broncogramas aéreos, obliteração da silhueta cardíaca e/ou fissuras interlobares - Sugestivo de edema pulmonar."
+  },
+  {
+    "region": "Tórax",
+    "title": "Pneumonia Aspirativa",
+    "text": "Opacificação pulmonar de padrão alveolar e aspecto heterogêneo, mais evidente em região peri-hilar e cranioventral - Imagens que sugerem pneumonia aspirativa (Correlacionar com sinais clínicos e histórico do paciente)."
+  },
+  {
+    "region": "Tórax",
+    "title": "Contusão Pulmonar",
+    "text": "Opacificação pulmonar de padrão intersticial tendendo a alveolar OU predominantemente alveolar, mais evidente em região X - Imagens que sugerem contusão pulmonar (Correlacionar com histórico e sinais clínicos do paciente). Pelo fato da contusão pulmonar evoluir em até 48 horas após o trauma, sugere-se controle radiográfico nesse período ou de acordo com a evolução clínica."
+  },
+  {
+    "region": "Tórax",
+    "title": "Atelectasia Pulmonar",
+    "text": "Visibiliza-se aumento da radiopacidade em topografia de lobo pulmonar X, associado ao deslocamento lateral do mediastino e da silhueta cardíaca - Sugestivo de atelectasia pulmonar."
+  },
+  {
+    "region": "Tórax",
+    "title": "Consolidação/ Hepatização Pulmonar",
+    "text": "Importante opacificação pulmonar homogênea e de padrão alveolar, mais evidente em topografia de lobo pulmonar X - Pode estar relacionado a consolidação/ hepatização pulmonar."
+  },
+  {
+    "region": "Tórax",
+    "title": "Enfisema Pulmonar Bolhoso",
+    "text": "Presença de área arredondada e radiotransparente, de paredes finas e radiopacas, medindo cerca de cm x cm e localizada em topografia de lobo pulmonar X - Compatível com enfisema pulmonar bolhoso."
+  },
+  {
+    "region": "Tórax",
+    "title": "Pneumotórax",
+    "text": "Hipertransparência pulmonar caracterizada por conteúdo de radiopacidade ar em espaço pleural, ocasionando retração dos lobos pulmonares e deslocamento dorsal do trajeto traqueal e da silhueta cardíaca em relação ao esterno - Pneumotórax."
+  },
+  {
+    "region": "Tórax",
+    "title": "Efusão/ Derrame Pleural",
+    "text": "Presença de conteúdo de radiopacidade água e homogêneo em espaço pleural, associado a fissuras interlobares e retração/arredondamento de lobos pulmonares, dificultando a adequada avaliação pulmonar e das demais estruturas em cavidade torácica - Relacionado a efusão pleural (Sugere-se reavaliação radiográfica após toracocentese para melhor elucidação diagnóstica)."
+  },
+  {
+    "region": "Tórax",
+    "title": "Torção de Lobo Pulmonar",
+    "text": "Visibiliza-se posição anormal e aumento de lobo pulmonar X, com maior evidência do respectivo trajeto brônquico do lobo afetado, associado ainda a conteúdo de radiopacidade água em espaço pleural adjacente (efusão pleural) - Considerar a possibilidade de torção de lobo pulmonar."
+  },
+  {
+    "region": "Tórax",
+    "title": "Aumento de Átrio Esquerdo",
+    "text": "Silhueta cardíaca de dimensões aumentadas em topografia de átrio esquerdo, ocasionando deslocamento dorsal do trajeto traqueal torácico e compressão da saída dos brônquios principais - Sugestivo de aumento de átrio esquerdo."
+  },
+  {
+    "region": "Tórax",
+    "title": "Aumento de Átrio Direito",
+    "text": "Silhueta cardíaca de dimensões aumentadas em topografia de átrio direito, ocasionando deslocamento dorsal do trajeto traqueal torácico - Imagens que sugerem aumento de átrio direito."
+  },
+  {
+    "region": "Tórax",
+    "title": "Aumento de Ventrículo Esquerdo",
+    "text": "Silhueta cardíaca de dimensões aumentadas em topografia de ventrículo esquerdo, ocasionando arredondamento do ápice cardíaco, além de deslocamento dorsal do trajeto traqueal torácico - Relacionado a aumento de ventrículo esquerdo."
+  },
+  {
+    "region": "Tórax",
+    "title": "Aumento de Ventrículo Direito",
+    "text": "Silhueta cardíaca de dimensões aumentadas em topografia de ventrículo direito, ocasionando maior contato cardioesternal e deslocamento dorsal do trajeto traqueal torácico, assumindo aspecto de \"D\" invertido pela projeção ventrodorsal - Considerar a possibilidade de aumento de ventrículo direito."
+  },
+  {
+    "region": "Tórax",
+    "title": "Cardiomegalia",
+    "text": "Importante aumento generalizado da silhueta cardíaca, assumindo aspecto globoso, associado a deslocamento do trajeto traqueal torácico e compressão da saída dos brônquios principais - Sugestivo de cardiopatia."
+  },
+  {
+    "region": "Tórax",
+    "title": "Microcardia",
+    "text": "Silhueta cardíaca de dimensões reduzidas com consequente redução do tamanho dos vasos pulmonares - Pode estar relacionado a hipovolemia ou alteração sistêmica."
+  },
+  {
+    "region": "Tórax",
+    "title": "Efusão Pericárdica",
+    "text": "Visibiliza-se aumento homogêneo de radiopacidade água em sobreposição a topografia de silhueta cardíaca, assumindo aspecto globoso e apresentando dimensões aumentadas - Pode estar relacionado a efusão pericárdica (Sugere-se correlacionar com demais exames complementares)."
+  },
+  {
+    "region": "Tórax",
+    "title": "Mineralização da Aorta",
+    "text": "Nota-se aumento da radiopacidade em topografia de trajeto aórtico, sendo melhor visibilizado pela projeção laterolateral - Sugestivo de mineralização da aorta, podendo estar relacionado a nefropatia."
+  },
+  {
+    "region": "Tórax",
+    "title": "Pneumomediastino",
+    "text": "Visibiliza-se conteúdo de radiopacidade gás entremeado ao mediastino cranial, ocasionando maior evidência da camada adventícia dorsal da traqueia, além de melhor individualização da veia cava cranial e da veia ázigos - Imagens que sugerem pneumomediastino."
+  },
+  {
+    "region": "Tórax",
+    "title": "Alargamento de Mediastino",
+    "text": "Nota-se maior evidência do mediastino caracterizada por alargamento da porção cranial - Compatível com alargamento de mediastino cranial, podendo estar relacionado a infiltrado adiposo ou neoplásico."
+  },
+  {
+    "region": "Tórax",
+    "title": "Processo Neoplásico Mediastinal",
+    "text": "Alargamento e aumento da radiopacidade em mediastino cranial, associado a deslocamento dorsolateral do trajeto traqueal torácico - Pode estar relacionado a processo neoplásico mediastinal."
+  },
+  {
+    "region": "Tórax",
+    "title": "Silhueta Tímica",
+    "text": "Presença de estrutura triangular, homogênea e de radiopacidade elevada, localizada cranialmente a silhueta cardíaca e lateralmente a esquerda do mediastino cranial - Sugestivo de silhueta tímica."
+  },
+  {
+    "region": "Tórax",
+    "title": "Colapso Traqueal",
+    "text": "Diminuição do lúmen traqueal em porção cervical/torácica com sobreposição de partes moles advinda da parede dorsal, ocorrendo de forma dinâmica e variável - Sugestivo de colapso traqueal."
+  },
+  {
+    "region": "Tórax",
+    "title": "Estenose Traqueal",
+    "text": "Estreitamento segmentar e focal do lúmen traqueal em porção cervical/torácica, envolvendo raros anéis traqueais e sem variação quanto ao momento respiratório - Relacionado a estenose traqueal."
+  },
+  {
+    "region": "Tórax",
+    "title": "Hipoplasia Traqueal",
+    "text": "Diminuição generalizada do lúmen traqueal, desde a porção cervical até a torácica, sem variação quanto ao momento respiratório. Utilizou-se a relação entre o diâmetro da traqueia / diâmetro da entrada do tórax = X - Imagens que sugerem hipoplasia traqueal."
+  },
+  {
+    "region": "Tórax",
+    "title": "Membrana Redundante da Traqueia",
+    "text": "Visibiliza-se sobreposição de radiopacidade tecidos moles em porção dorsal da traqueia cervicotorácica - Pode estar relacionado a membrana traqueal redundante ou sobreposição de tecidos moles adjacentes."
+  },
+  {
+    "region": "Tórax",
+    "title": "Stent Traqueal",
+    "text": "Em topografia de lúmen traqueal na porção cervicotorácica, visibiliza-se estrutura tubular, com aspecto de \"rede\" e de radiopacidade metal, medindo cerca de cm x cm - Compatível com stent traqueal."
+  },
+  {
+    "region": "Tórax",
+    "title": "Mineralização de Anéis Traqueais",
+    "text": "Evidencia-se aumento da radiopacidade dos anéis traqueais em porção cervical/torácica - Imagens que sugerem mineralização de anéis traqueais, relacionado a senescência."
+  },
+  {
+    "region": "Tórax",
+    "title": "Megaesôfago",
+    "text": "Importante dilatação esofágica difusa por conteúdo gasoso e/ou heterogêneo (conteúdo alimentar), deslocando ventralmente o trajeto traqueal e a silhueta cardíaca - Sugestivo de megaesôfago."
+  },
+  {
+    "region": "Tórax",
+    "title": "Anomalia do Anel Vascular",
+    "text": "Dilatação esofágica focal, localizada cranialmente a base do coração e ocasionando efeito de \"massa\"/saculação, preenchida por conteúdo gasoso e/ou heterogêneo (conteúdo alimentar) e deslocando ventralmente o trajeto traqueal torácico - Imagens que sugerem anomalia do anel vascular, relacionada a persistência do 4º arco aórtico direito (PAAD)."
+  },
+  {
+    "region": "Tórax",
+    "title": "Esôfago Redundante",
+    "text": "Visibiliza-se curvatura ventral em formato de \"U\" na porção cranial do esôfago torácico - Pode estar relacionado a esôfago redundante (Sugere-se a realização de exame contrastado para diagnóstico)."
+  },
+  {
+    "region": "Tórax",
+    "title": "Corpo Estranho Esofágico",
+    "text": "Estrutura de formato X e de radiopacidade elevada, localizada em lúmen esofágico da porção cervical/torácica, medindo cerca de cm x cm, associado a aumento do diâmetro esofágico cranialmente a estrutura - Imagens que sugerem corpo estranho esofágico."
+  },
+  {
+    "region": "Tórax",
+    "title": "Sonda Esofágica",
+    "text": "Presença de estrutura tubular e paredes radiopacas em topografia de trajeto esofágico, estendendo-se até o X espaço intercostal - Sonda esofágica."
+  },
+  {
+    "region": "Tórax",
+    "title": "Sonda Nasogástrica",
+    "text": "Presença de estrutura tubular e paredes radiopacas em topografia de trajeto esofágico, estendendo-se até o X espaço intercostal e adentrando a cavidade gástrica - Sonda nasogástrica."
+  },
+  {
+    "region": "Tórax",
+    "title": "Espirocercose",
+    "text": "Visibiliza-se estrutura tendendo a arredondada e de radiopacidade elevada, localizada em sobreposição a topografia de mediastino dorsocaudal, caudalmente a base do coração, associado a diminuição focal do esôfago adjacente, além de espondilose/espondilite deformante ventral entre as vértebras X e X, em região dorsal a massa supracitada - Pode estar relacionado a verminose (Spirocerca Lupi), não sendo possível descartar corpo estranho esofágico."
+  },
+  {
+    "region": "Tórax",
+    "title": "Estenose Esofágica",
+    "text": "Diminuição focal do lúmen esofágico em porção cervical/torácica - Sugestivo de estenose esofágica."
+  },
+  {
+    "region": "Tórax",
+    "title": "Hérnia Paraesofágica",
+    "text": "Deslocamento cranial do fundo gástrico em direção ao mediastino caudal, lateralmente a esquerda do trajeto esofágico - Pode estar relacionado a hérnia paraesofágica."
+  },
+  {
+    "region": "Tórax",
+    "title": "Intussuscepção Gastroesofágica",
+    "text": "Dilatação esofágica secundária a presença de estrutura de radiopacidade tecidos moles e gás intraluminal, caracterizando invaginação da cavidade gástrica para o lúmen esofágico caudal - Imagens que sugerem intussuscepção gastroesofágica."
+  },
+  {
+    "region": "Tórax",
+    "title": "Hérnia de Hiato Esofágico",
+    "text": "Dilatação do esôfago secundário ao deslocamento cranial do esfíncter esofágico caudal e do fundo gástrico em direção ao mediastino caudal através do hiato esofágico - Pode estar relacionado a hérnia de hiato esofágico (Sugere-se correlacionar ao esofagograma para melhor avaliação)."
+  },
+  {
+    "region": "Tórax",
+    "title": "Linfoadenopatia",
+    "text": "Nota-se estrutura tendendo a ovalada/arredondada, de limites pouco definidos e radiopacidade tecidos moles, localizada em topografia de linfonodos esternais/mediastinais/traqueobrônquicos - Pode estar relacionado a linfonodomegalia."
+  },
+  {
+    "region": "Tórax",
+    "title": "Hipoplasia/ Agenesia de Costela",
+    "text": "Nota-se hipoplasia/ausência de arco costal X esquerdo/direito - Sugestivo de hipoplasia/agenesia de costela."
+  },
+  {
+    "region": "Tórax",
+    "title": "Fratura de Costela",
+    "text": "Descontinuidade óssea do arco costal X esquerdo/direito, com/sem desalinhamento do eixo ósseo - Relacionado a fratura de costela."
+  },
+  {
+    "region": "Tórax",
+    "title": "Situs Inversus Torácico",
+    "text": "Órgão torácicos posicionados de forma contrária a normalidade, caracterizado principalmente pelo ápice cardíaco localizado do lado direito e a veia cava caudal do lado esquerdo do tórax, sendo melhor identificado pela projeção ventrodorsal - Imagens que sugerem alteração morfológica Situs Inversus."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Hérnia Diafragmática",
+    "text": "Perda da definição da cúpula diafragmática em região X, com deslocamento cranial dos órgãos abdominais sobrepondo-se aos campos pulmonares e silhueta cardíaca, dificultando a adequada avaliação torácica - Compatível com hérnia diafragmática."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Hérnia Peritoneopericárdica",
+    "text": "Perda da definição da cúpula diafragmática em região X, com deslocamento cranial dos órgãos abdominais sobrepondo-se apenas a silhueta cardíaca, sugerindo dimensões aumentadas e contornos arredondados - Relacionado a hérnia peritoneopericárdica."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Hérnia Umbilical",
+    "text": "Aumento de volume em subcutâneo da região abdominal ventral, caracterizado por estrutura X ultrapassando os limites da musculatura abdominal e com a presença de anel tecidual circundante - Sugestivo de hérnia umbilical."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Eventração",
+    "text": "Aumento de volume em subcutâneo da região abdominal ventral, caracterizado por estrutura X ultrapassando os limites da musculatura abdominal, porém sem evidências de anel tecidual circundante - Imagens que sugerem eventração."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Evisceração",
+    "text": "Visibiliza-se a presença de estrutura abdominal X ultrapassando os limites da musculatura e da parede abdominal em região ventral, expondo-se ao meio externo - Sugestivo de evisceração."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Efusão Peritoneal",
+    "text": "Perda da caracterização da superfície serosa e dos limites dos órgãos da cavidade abdominal, além de aumento homogêneo e de radiopacidade água intra- abdominal - Sugestivo de efusão peritoneal."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Pneumoperitôneo",
+    "text": "Presença de conteúdo de radiopacidade gás adjacente aos órgãos da cavidade abdominal, ocasionando maior contraste do abdômen - Pode estar relacionado a pneumoperitôneo."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Hepatomegalia",
+    "text": "Silhueta hepática de dimensões aumentadas e bordos arredondados, ultrapassando os limites do gradil costal - Relacionado a hepatomegalia (Sugere- se correlacionar ao exame ultrassonográfico para melhor elucidação diagnóstica)."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Abscesso Hepático",
+    "text": "Presença de conteúdo de radiopacidade gás focal/disperso em topografia de silhueta hepática - Considerar a possibilidade de abscesso hepático."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Mineralização Hepática",
+    "text": "Presença de estruturas amorfas e de radiopacidade mineral dispostas de forma linear em sobreposição a silhueta hepática, medindo uma delas cerca de cm x cm - Pode estar relacionado a mineralização hepática (Sugere-se relacionar ao exame ultrassonográfico)."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Colelitíase",
+    "text": "Visibiliza-se estrutura amorfa e de radiopacidade mineral localizada em abdômen cranial direito, em sobreposição a topografia de vesícula biliar, medindo cerca de cm x cm - Pode estar relacionado a colelitíase."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Colecistite Enfisematosa",
+    "text": "Presença de conteúdo de radiopacidade gás em abdômen cranial direito, em sobreposição a topografia de vesícula biliar - Considerar a possibilidade de colecistite enfisematosa."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Esplenomegalia",
+    "text": "Silhueta esplênica em maior evidência, de dimensões aumentadas e bordos arredondados - Relacionado a esplenomegalia (Sugere-se a realização de exame ultrassonográfico para adequada avaliação)."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Dilatação Gástrica",
+    "text": "Importante dilatação da cavidade gástrica por conteúdo predominantemente gasoso, porém com preservação da sua posição e respectivas relações anatômicas - Sugestivo de dilatação gástrica."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Torção Gástrica",
+    "text": "Acentuada dilatação da cavidade gástrica por conteúdo gasoso e de radiopacidade água (líquido), com evidenciação de linha radiopaca sobreposta (linha de compartimentalização gástrica) e deslocamento dorsal a esquerda do piloro - Imagens que sugerem torção gástrica, podendo estar associado a processo obstrutivo total do trato gastrointestinal."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Corpo Estranho Gástrico",
+    "text": "Visibiliza-se estrutura de formato X e radiopacidade elevada, localizada em topografia de cavidade gástrica, medindo aproximadamente cm x cm pela projeção laterolateral e cm x cm pela projeção ventrodorsal - Sugestivo de corpo estranho gástrico."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Corpo Estranho Intestinal",
+    "text": "Presença de estrutura de formato X e radiopacidade elevada, localizada em topografia de segmento duodenal/jejunal/cólico, medindo cerca de cm x cm pela projeção laterolateral e cm x cm pela projeção ventrodorsal - Relacionado a corpo estranho intestinal."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Processo Obstrutivo Intestinal",
+    "text": "Evidencia-se dilatação em diferentes graus das alças intestinais por conteúdo gasoso e de radiopacidade água (fecal), com distribuição assimétrica das mesmas, caracterizando aspecto de empilhamento intestinal - Imagens que sugerem processo obstrutivo intestinal (Sugere-se a realização de exame ultrassonográfico para melhor avaliação)."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Processo Neoplásico Intestinal",
+    "text": "Visibiliza-se área arredondada e de radiopacidade tecidos moles, localizada em topografia de segmento intestinal X, medindo cerca de cm x cm e ocasionando deformidade do contorno da camada serosa - Considerar a possibilidade de processo neoplásico intestinal (Sugere-se a realização de exame ultrassonográfico para melhor avaliação)."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Fecaloma",
+    "text": "Cólon descendente preenchido por conteúdo de radiopacidade elevada (fecal denso) e gasoso, sendo a relação entre o diâmetro do cólon e o comprimento da vértebra L5 medindo entre 1,28cm a 1,48cm - Relacionado a fecaloma."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Megacólon",
+    "text": "Importante dilatação difusa do cólon descendente por conteúdo de radiopacidade bastante elevada (fecaloma) e gasoso, sendo a relação entre o diâmetro do cólon e o comprimento da vértebra L5 maior que 1,48cm - Sugestivo de megacólon."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Nefropatia",
+    "text": "Silhueta renal esquerda/direita de dimensões aumentadas, ocasionando deslocamento ventral das alças intestinais - Sugestivo de nefropatia."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Doença Renal Crônica",
+    "text": "Silhueta renal esquerda/direita de dimensões reduzidas e contornos irregulares - Pode estar relacionado a doença renal crônica."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Nefrolitíase",
+    "text": "Presença de estrutura arredondada e de radiopacidade mineral, localizada em topografia de silhueta renal esquerda/direita e medindo cerca de cm x cm - Relacionado a nefrolitíase."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Ureterolitíase",
+    "text": "Presença de diminuta estrutura arredondada e de radiopacidade mineral, localizada em topografia de trajeto ureteral esquerdo/direito e medindo cerca de cm x cm, sendo melhor visibilizada pela projeção laterolateral - Sugestivo de ureterolitíase."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Dilatação/ Obstrução Ureteral",
+    "text": "Visibiliza-se estrutura tubular e tortuosa no espaço retroperitoneal, em topografia de trajeto ureteral esquerdo/direito, medindo cerca de cm de diâmetro e estendendo-se desde o rim até a região dorsal do trígono vesical - Considerar a possibilidade de dilatação e/ou obstrução ureteral."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Cistolitíase",
+    "text": "Presença de pelo menos X estruturas tendendo a arredondadas e de radiopacidade mineral, localizadas em topografia de vesícula urinária e medindo a maior delas cerca de cm x cm - Relacionado a cistolitíases (Sugere-se correlacionar ao exame ultrassonográfico, uma vez que não é possível excluir a possibilidade de cálculos não radiopacos)."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Cistite Enfisematosa",
+    "text": "Presença de conteúdo de radiopacidade gás em topografia de vesícula urinária - Pode estar relacionado a cistite enfisematosa ou sondagem prévia."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Uretrolitíase",
+    "text": "Presença de pelo menos X diminutas estruturas tendendo a arredondadas e de radiopacidade mineral, localizadas em topografia de trajeto uretral (prostático/peniano) e medindo a maior delas cerca de cm x cm - Relacionado a uretrolitíases."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Sonda Uretral",
+    "text": "Presença de estrutura tubular e paredes radiopacas em topografia de trajeto uretral e estendendo-se até a vesícula urinária - Sonda uretral."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Cateter Duplo J",
+    "text": "Presença de estrutura tubular e radiopaca em topografia de trajeto ureteral esquerdo/direito, estendendo-se desde a silhueta renal e adentrando a vesícula urinária - Compatível com cateter duplo J."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Bypass Ureteral Subcutâneo (SUB)",
+    "text": "Presença de duas estrutura tubulares e radiopacas intra-abdominais, estendendo-se desde a silhueta renal esquerda/direita e adentrando a bexiga, conectadas através de estrutura arredondada e de radiopacidade metal, medindo cerca de cm x cm e localizada em subcutâneo da região X - Compatível com Bypass ureteral subcutâneo."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Prostatomegalia",
+    "text": "Silhueta prostática de dimensões aumentadas, ocasionando deslocamento cranial da vesícula urinária e deslocamento dorsal do cólon descendente - Compatível com prostatomegalia."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Mineralização Prostática",
+    "text": "Silhueta prostática de dimensões aumentadas, contornos irregulares e com áreas puntiformes e de radiopacidade elevada sobrepostas ao parênquima (mineralizações/calcificações) - Considerar a possibilidade de processo neoplásico prostático."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Alteração Ovariana",
+    "text": "Nota-se estrutura tendendo a arredondada e de radiopacidade tecidos moles, localizada caudalmente a silhueta renal esquerda/direita, medindo cerca de cm x cm - Pode estar relacionado a alteração ovariana (Melhor elucidação através do exame ultrassonográfico)."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Situs Inversus Abdominal",
+    "text": "Órgão abdominais posicionados de forma contrária a normalidade, caracterizado principalmente pelo fundo gástrico localizado do lado direito do abdômen, piloro do lado esquerdo e silhueta renal esquerda cranialmente a direita, sendo melhor identificado pela projeção ventrodorsal - Imagens que sugerem alteração morfológica Situs Inversus."
+  },
+  {
+    "region": "Abdômen",
+    "title": "Piometra",
+    "text": "Visibiliza-se aumento de tamanho e radiopacidade em topografia de corpo e cornos uterinos, ocasionando deslocamento dos órgãos abdominais adjacentes - Considerar a possibilidade de muco/hemo/piometra (Sugere-se avaliação ultrassonográfica para melhor diagnóstico)."
+  },
+  {
+    "region": "Gestacional",
+    "title": "Prenhez Positiva",
+    "text": "Visibiliza-se pelo menos X estruturas fetais mineralizadas, sendo X em posição cranial e X em posição caudal em relação a pelve materna, sugerindo idade gestacional maior que 45 dias - Prenhez positiva (Sugere-se a realização de exame ultrassonográfico para avaliação da viabilidade fetal)."
+  },
+  {
+    "region": "Gestacional",
+    "title": "Distocia Fetal",
+    "text": "Presença de estrutura fetal em topografia de corno uterino esquerdo/direito, porém com o diâmetro do crânio desproporcional ao diâmetro da pelve materna OU apresentando-se em posição transversal OU com desvio dorsal/lateral/ventral do crânio fetal - Imagens que sugerem distocia fetal."
+  },
+  {
+    "region": "Gestacional",
+    "title": "Putrefação Fetal",
+    "text": "Nota-se conteúdo de radiopacidade gás envolvendo estrutura fetal em topografia de corno uterino esquerdo/direito - Imagens que sugerem putrefação fetal (feto enfisematoso), relacionado a processo séptico e morte fetal."
+  },
+  {
+    "region": "Gestacional",
+    "title": "Mumificação Fetal",
+    "text": "Estrutura fetal em topografia de corno uterino esquerdo/direito apresentando esqueleto flexionado e colapsado - Sugestivo de mumificação fetal, relacionado a processo asséptico, reabsorção incompleta e morte fetal."
+  },
+  {
+    "region": "Gestacional",
+    "title": "Maceração Fetal",
+    "text": "Estrutura fetal em topografia de corno uterino esquerdo/direito sem disposição do esqueleto ósseo - Compatível com maceração fetal, relacionado a processo séptico e morte fetal."
+  },
+  {
+    "region": "Gestacional",
+    "title": "Sinal de Spalding",
+    "text": "Evidencia-se estrutura fetal em topografia de corno uterino esquerdo/direito com desnivelamento ósseo da calota craniana, sendo melhor visibilizado pela projeção ventrodorsal - Imagens que sugerem sinal de Spalding, relacionado a morte fetal."
+  },
+  {
+    "region": "Outros",
+    "title": "Microchip",
+    "text": "Presença de estrutura afilada e de radiopacidade metal em subcutâneo da região dorsal, adjacente ao segmento cervical da coluna vertebral e medindo cerca de cm x cm - Compatível com microchip."
+  },
+  {
+    "region": "Outros",
+    "title": "Projétil Balístico",
+    "text": "Nota-se estrutura amorfa e de radiopacidade metal localizada em região X, medindo cerca de cm x cm e com/sem evidências de acometimento de estruturas adjacentes - Relacionado a projétil balístico."
+  },
+  {
+    "region": "Outros",
+    "title": "Implantes de Ouro",
+    "text": "Visibilizam-se pelo menos X diminutas estruturas afiladas e de radiopacidade metal adjacentes a articulação X, medindo uma delas cerca de cm x cm - Imagens que sugerem implantes de ouro."
+  },
+  {
+    "region": "Outros",
+    "title": "Enfisema Subcutâneo",
+    "text": "Presença de conteúdo de radiopacidade gás entremeado aos tecidos moles da região X - Relacionado a enfisema subcutâneo."
+  },
+  {
+    "region": "Outros",
+    "title": "Aumento de Volume em Tecidos Moles",
+    "text": "Evidencia-se aumento de volume e radiopacidade tecidos moles em subcutâneo da região X, medindo aproximadamente cm x cm e sem evidências de acometimento ósseo - Aumento de volume, a esclarecer (Melhor elucidação diagnóstica através de demais exames complementares)."
+  },
+  {
+    "region": "Outros",
+    "title": "Osteopenia",
+    "text": "Diminuição generalizada da radiopacidade óssea - Denominado osteopenia."
+  },
+  {
+    "region": "Outros",
+    "title": "Osteólise",
+    "text": "Diminuição focal da radiopacidade óssea em região X - Denominado osteólise."
+  },
+  {
+    "region": "Outros",
+    "title": "Esclerose",
+    "text": "Aumento da radiopacidade óssea em região X - Denominado esclerose."
+  },
+  {
+    "region": "Outros",
+    "title": "Triângulo de Codman",
+    "text": "Elevação do periósteo secundário a neoformação óssea, formando um aspecto de triângulo na diáfise do osso, adjacente ao local da lesão - Denominado triângulo de Codman."
+  }
+]
