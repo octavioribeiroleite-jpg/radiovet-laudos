@@ -1,10 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import ebookFindings from "./findings.json";
 
 type Finding = { id: string; region: string; title: string; tags: string[]; report: string; impression: string; normal?: string };
 
-const library: Finding[] = [
+const coreLibrary: Finding[] = [
   { id: "pneumonia", region: "Tórax", title: "Pneumonia / padrão alveolar", tags: ["pulmão", "inflamação"], report: "Campos pulmonares com aumento de radiopacidade de padrão alveolar, mais evidente em [lobo/região], associado a broncogramas aéreos.", impression: "Achados radiográficos sugerem pneumonia em [lobo/região]." },
   { id: "bronquite", region: "Tórax", title: "Broncopneumopatia inflamatória", tags: ["pulmão", "crônico"], report: "Campos pulmonares discretamente opacificados por padrão intersticiobronquial.", impression: "Broncopneumopatia inflamatória crônica discreta, a correlacionar com os dados clínicos." },
   { id: "cardio", region: "Tórax", title: "Cardiomegalia", tags: ["coração"], report: "Silhueta cardíaca apresenta-se aumentada, com [câmara] mais evidente.", impression: "Cardiomegalia [discreta/moderada/acentuada]. A critério clínico, sugere-se ecodopplercardiograma para melhor caracterização." },
@@ -22,6 +23,20 @@ const library: Finding[] = [
   { id: "nasal", region: "Crânio", title: "Lesão nasal agressiva", tags: ["nariz", "neoplasia"], report: "Aumento de radiopacidade em cavidade nasal [lado], associado a lise do osso vômer e perda da definição das conchas nasais.", impression: "Lesão nasal agressiva, podendo estar relacionada a processo neoplásico. Sugere-se complementação diagnóstica." },
   { id: "otitis", region: "Crânio", title: "Otite média", tags: ["bula timpânica"], report: "Aumento da radiopacidade e espessamento da bula timpânica [lado].", impression: "Achados sugestivos de otite média [unilateral/bilateral]." },
   { id: "pregnancy", region: "Gestacional", title: "Prenhez positiva", tags: ["feto", "gestação"], report: "Identificam-se esqueletos fetais mineralizados em cavidade abdominal, permitindo estimativa radiográfica de [número] concepto(s).", impression: "Prenhez positiva, com estimativa de [número] concepto(s)." },
+];
+
+const library: Finding[] = [
+  ...coreLibrary,
+  ...ebookFindings
+    .filter((item) => !coreLibrary.some((finding) => finding.title.toLowerCase() === item.title.toLowerCase()))
+    .map((item, index) => ({
+      id: `ebook-${index}`,
+      region: item.region,
+      title: item.title,
+      tags: [item.region.toLowerCase(), "biblioteca"],
+      report: item.text,
+      impression: `Achados radiográficos relacionados a ${item.title.toLowerCase()}.`,
+    })),
 ];
 
 const normalByRegion: Record<string, string> = {
