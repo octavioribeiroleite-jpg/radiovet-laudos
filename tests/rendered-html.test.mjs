@@ -39,6 +39,8 @@ test("keeps the report model unified and the Thrall context available", async ()
   assert.doesNotMatch(page, /value=\{description\}|value=\{impression\}|value=\{comment\}/);
   assert.match(page, /getThrallContext/);
   assert.match(page, /thrallStudyGuides/);
+  assert.match(page, /className="disclosure-button"/);
+  assert.match(page, /aria-expanded=\{/);
   assert.match(context, /Método de interpretação/);
   assert.match(context, /Lesões ósseas e agressividade/);
   assert.match(context, /Padrões pulmonares/);
