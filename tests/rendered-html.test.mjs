@@ -49,8 +49,13 @@ test("keeps the report model unified and the Thrall context available", async ()
   assert.match(page, /target="_blank" rel="noopener noreferrer"/);
   assert.match(page, /const caseExamples: CaseExample\[\]/);
   assert.match(page, /CASOS DO SEU ACERVO/);
-  assert.match(page, /Compare com uma radiografia real/);
-  assert.match(page, /Os arquivos continuam privados no seu Drive/);
+  assert.match(page, /Compare com um caso real/);
+  assert.match(page, /radiografia e a redação original aparecem abaixo já anonimizadas/);
+  assert.match(page, /year: 2026/);
+  assert.match(page, /case-examples\/minie-radiografia-anonima\.jpg/);
+  assert.match(page, /case-examples\/minie-laudo-anonimo\.jpg/);
+  assert.match(page, /Radiografia anonimizada/);
+  assert.match(page, /Redação original do laudo/);
   assert.match(page, /https:\/\/drive\.google\.com\/file\/d\/1Fsw6vb4tOScf1RERocj5PkD-Nq1VpwRf/);
   assert.match(page, /https:\/\/drive\.google\.com\/file\/d\/1RYXf9ZMXKdN0f-OpL5mlKbi3I_1xZOgt/);
   assert.match(page, /https:\/\/docs\.google\.com\/spreadsheets\/d\/1pcS24qWrTYMMmAkiagfPQtDUrCkbp0kEbMUP_9tJK4M/);
