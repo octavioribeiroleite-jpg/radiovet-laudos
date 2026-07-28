@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import ebookFindings from "./findings.json";
+import { getThrallContext, thrallStudyGuides } from "./thrall-context";
 
 type VisualReference = { src: string; alt: string; caption: string; source: string };
 type Reference = {
@@ -246,6 +247,7 @@ export default function Home() {
   const [draftsLoaded, setDraftsLoaded] = useState(false);
   const [copied, setCopied] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [guideOpen, setGuideOpen] = useState(false);
 
   useEffect(() => {
     try {
@@ -277,6 +279,7 @@ IMPRESSÕES DIAGNÓSTICAS
 
 COMENTÁRIOS
 - [Comentário]`;
+  const activeContext = active ? getThrallContext(active.title, active.region) : null;
   const openWriter = (item: Reference) => {
     const existing = drafts.find((draft) => draft.id === item.id);
     setSaved(false);
@@ -293,6 +296,15 @@ COMENTÁRIOS
   };
   const copy = async () => { await navigator.clipboard.writeText(output); setCopied(true); window.setTimeout(() => setCopied(false), 1800); };
 
+  if (guideOpen) return <main className="thrall-guide-page">
+    <header><div className="brand"><span className="brand-mark">R</span><span>RADIO<span>VET</span></span></div><p>Guia de interpretação</p><button className="back" type="button" onClick={() => setGuideOpen(false)}>← Voltar à biblioteca</button></header>
+    <section className="guide-hero"><p className="eyebrow">THRALL · 6ª EDIÇÃO · SÍNTESE APLICADA</p><h1>Entenda o sinal antes de concluir.</h1><p>Um roteiro prático para transformar a observação radiográfica em descrição, impressão e recomendação. O conteúdo foi organizado para consulta rápida e não substitui a leitura integral da obra.</p><div className="guide-stats"><span><b>{references.length}</b> fichas relacionadas</span><span><b>{thrallStudyGuides.length}</b> módulos de leitura</span><span><b>45</b> capítulos revisados</span></div></section>
+    <section className="guide-shell">
+      <aside className="guide-index"><p className="section-label">NESTE GUIA</p>{thrallStudyGuides.map((guide, index) => <a href={`#${guide.id}`} key={guide.id}><span>{String(index + 1).padStart(2, "0")}</span>{guide.title}</a>)}</aside>
+      <section className="guide-modules">{thrallStudyGuides.map((guide, index) => <article className="guide-module" id={guide.id} key={guide.id}><div className="guide-module-head"><span>{String(index + 1).padStart(2, "0")}</span><div><p>{guide.chapters}</p><h2>{guide.title}</h2></div></div><p className="guide-introduction">{guide.introduction}</p><div className="guide-essentials"><p className="section-label">IDEIAS ESSENCIAIS</p><ul>{guide.essentials.map((item) => <li key={item}>{item}</li>)}</ul></div><details><summary>Ver passo a passo e armadilhas</summary><div className="guide-details"><div><p className="section-label">SEQUÊNCIA DE LEITURA</p><ol>{guide.sequence.map((item) => <li key={item}>{item}</li>)}</ol></div><div><p className="section-label">ARMADILHAS</p><ul>{guide.traps.map((item) => <li key={item}>{item}</li>)}</ul></div></div></details></article>)}</section>
+    </section>
+  </main>;
+
   if (active) return <main className="writing-mode">
     <header><div className="brand"><span className="brand-mark">R</span><span>RADIO<span>VET</span></span></div><p>Ficha de consulta</p><button className="back" type="button" onClick={() => setActive(null)}>← Voltar à biblioteca</button></header>
     <section className="writing-head"><p className="eyebrow">{active.kind === "pre-laudo" ? "MODELO PRONTO" : "ALTERAÇÃO RADIOGRÁFICA"} · {active.region.toUpperCase()}</p><h1>{active.title}</h1><p>Veja como a alteração aparece, consulte uma descrição completa e leve uma impressão diagnóstica direta para o seu rascunho.</p></section>
@@ -303,6 +315,7 @@ COMENTÁRIOS
         </article>
         <article className="recognition-card"><p className="section-label">COMO ESSA ALTERAÇÃO APARECE</p><h2>O que procurar na imagem</h2><ul>{active.appearance.map((item) => <li key={item}>{item}</li>)}</ul></article>
         {active.visual && <figure className="visual-reference"><img src={active.visual.src} alt={active.visual.alt} /><figcaption><b>{active.visual.caption}</b><span>{active.visual.source}</span></figcaption></figure>}
+        {activeContext && <article className="thrall-context-card"><div className="thrall-context-head"><div><p className="section-label">CONTEXTO THRALL</p><h2>{activeContext.chapterTitle}</h2></div><span>{activeContext.chapter}</span></div><p className="thrall-summary">{activeContext.summary}</p><div className="thrall-explain"><div><p className="section-label">POR QUE APARECE ASSIM</p><p>{activeContext.mechanism}</p></div><div><p className="section-label">QUANDO OUTRO EXAME AJUDA</p><p>{activeContext.nextStep}</p></div></div><details open><summary>O que confirmar antes de concluir</summary><ul>{activeContext.confirm.map((item) => <li key={item}>{item}</li>)}</ul></details><details><summary>Armadilhas e limitações</summary><ul>{activeContext.pitfalls.map((item) => <li key={item}>{item}</li>)}</ul></details><p className="context-source">{activeContext.evidence}</p></article>}
         <article className="consult-card"><div><p className="section-label">ROTEIRO DE LEITURA</p><ul>{active.readingGuide.map((item) => <li key={item}>{item}</li>)}</ul></div><div><p className="section-label">DIFERENCIAIS E CUIDADOS</p><ul>{active.differentials.length ? active.differentials.map((item) => <li key={item}>{item}</li>) : <li>Não se aplica ao modelo de normalidade.</li>}</ul></div><p className="source-line">Fonte de consulta: {active.source}</p></article>
       </section>
       <article className="editor-card clinical-editor"><p className="section-label">ADAPTE PARA O SEU CASO</p><h2>Modelo completo</h2><p className="editor-help">Todo o conteúdo está dentro de uma única caixa. Ajuste o texto livremente e salve o conjunto completo.</p><label>Relatório, impressões e comentários<textarea className="full-model-editor" value={fullText} onChange={(event) => setFullText(event.target.value)} /></label><div className="writing-actions"><button type="button" className="secondary" onClick={() => setActive(null)}>Cancelar</button><button type="button" className="primary" onClick={saveDraft}>Salvar modelo completo</button></div></article>
@@ -310,12 +323,12 @@ COMENTÁRIOS
   </main>;
 
   return <main>
-    <header><div className="brand"><span className="brand-mark">R</span><span>RADIO<span>VET</span></span></div><p>Biblioteca de aprendizado</p><span className="header-note">Leia um modelo, abra e escreva por etapas.</span></header>
+    <header><div className="brand"><span className="brand-mark">R</span><span>RADIO<span>VET</span></span></div><p>Biblioteca de aprendizado</p><span className="header-note">Leia um modelo, entenda o sinal e adapte o texto.</span><button className="header-guide-button" type="button" onClick={() => setGuideOpen(true)}>Guia Thrall</button></header>
     {saved && <div className="save-notice" role="status">Modelo salvo no seu rascunho.</div>}
-    <section className="intro"><p className="eyebrow">200 FICHAS RADIOGRÁFICAS</p><h1>Reconheça a alteração.<br/><em>Descreva com segurança.</em></h1><p>Cada ficha reúne descrição completa, impressão direta, sinais para procurar e um roteiro de leitura. As referências visuais do Thrall estão sendo integradas às alterações correspondentes.</p></section>
+    <section className="intro"><p className="eyebrow">218 FICHAS + CONTEXTO THRALL</p><h1>Reconheça a alteração.<br/><em>Entenda por que aparece.</em></h1><p>Cada ficha reúne descrição completa, impressão direta, sinais para procurar, mecanismo radiográfico, limitações, armadilhas e indicação de exames complementares.</p><button className="intro-guide-button" type="button" onClick={() => setGuideOpen(true)}>Abrir guia de interpretação <span>→</span></button></section>
     <section className="learning-layout">
       <aside className="region-nav"><p className="section-label">NAVEGAR POR REGIÃO</p>{["Todos", ...regionOrder.filter((item) => references.some((reference) => reference.region === item))].map((item) => <button type="button" className={region === item ? "active" : ""} onClick={() => setRegion(item)} key={item}>{item}<span>{item === "Todos" ? references.length : references.filter((reference) => reference.region === item).length}</span></button>)}</aside>
-      <section className="library"><div className="library-head"><div><p className="section-label">FICHAS PARA CONSULTA</p><h2>{region === "Todos" ? "Escolha uma região" : region}</h2></div><label className="search"><span>⌕</span><input aria-label="Buscar modelo" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Buscar alteração ou estrutura" /></label></div><div className="reference-grid">{visible.map((item) => <article className={`learning-card ${item.kind === "pre-laudo" ? "ready-model" : ""}`} key={item.id}>{item.visual && <div className="card-image"><img src={item.visual.src} alt="" /><span>Referência visual</span></div>}<div className="card-meta"><span>{item.kind === "pre-laudo" ? "PRÉ-LAUDO" : item.region.toUpperCase()}</span><small>Modelo completo</small></div><h3>{item.title}</h3><p>{item.model}</p><div className="card-impression"><b>Impressão direta</b><span>{item.impression}</span></div><button type="button" onClick={() => openWriter(item)}>Abrir relatório completo <span>→</span></button></article>)}</div></section>
+      <section className="library"><div className="library-head"><div><p className="section-label">FICHAS PARA CONSULTA</p><h2>{region === "Todos" ? "Escolha uma região" : region}</h2></div><label className="search"><span>⌕</span><input aria-label="Buscar modelo" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Buscar alteração ou estrutura" /></label></div><div className="reference-grid">{visible.map((item) => <article className={`learning-card ${item.kind === "pre-laudo" ? "ready-model" : ""}`} key={item.id}>{item.visual && <div className="card-image"><img src={item.visual.src} alt="" /><span>Referência visual</span></div>}<div className="card-meta"><span>{item.kind === "pre-laudo" ? "PRÉ-LAUDO" : item.region.toUpperCase()}</span><small>Modelo + contexto Thrall</small></div><h3>{item.title}</h3><p>{item.model}</p><div className="card-impression"><b>Impressão direta</b><span>{item.impression}</span></div><div className="thrall-badge">THRALL · {getThrallContext(item.title, item.region).chapter}</div><button type="button" onClick={() => openWriter(item)}>Abrir ficha completa <span>→</span></button></article>)}</div></section>
       <aside className="draft-panel"><p className="section-label">MEU RASCUNHO</p><h2>Modelo completo</h2>{drafts.length ? <div className="draft-list">{drafts.map((draft) => <button type="button" key={draft.id} onClick={() => { const item = references.find((reference) => reference.id === draft.id); if (item) openWriter(item); }}><span>{draft.region}</span>{draft.title}</button>)}</div> : <div className="draft-empty"><b>Ainda vazio.</b><p>Abra uma ficha e salve o modelo completo aqui.</p></div>}<pre>{output}</pre><div className="draft-actions"><button type="button" className="secondary" onClick={() => setDrafts([])} disabled={!drafts.length}>Limpar</button><button type="button" className="primary" onClick={copy}>{copied ? "Copiado" : "Copiar modelo"}</button></div><p className="disclaimer">Ferramenta de estudo e apoio à redação. A interpretação e responsabilidade técnica são do médico-veterinário.</p></aside>
     </section>
   </main>;
