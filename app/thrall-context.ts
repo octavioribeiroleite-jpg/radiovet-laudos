@@ -21,6 +21,20 @@ export type ThrallStudyGuide = {
 
 export const thrallStudyGuides: ThrallStudyGuide[] = [
   {
+    id: "tecnica",
+    title: "Técnica, posicionamento e projeções",
+    chapters: "UniRádio · Técnica e posicionamento radiográfico",
+    introduction: "Antes de interpretar qualquer sinal, confirme se a técnica permite enxergá-lo. A projeção é nomeada pelo percurso do feixe de raios X; posicionamento, colimação, exposição e rotação podem criar ou esconder alterações.",
+    essentials: [
+      "Solicite pelo menos duas projeções ortogonais para estruturas musculoesqueléticas e para confirmar localização de fraturas ou corpos estranhos.",
+      "Em tórax lateral, os membros torácicos devem ser tracionados cranialmente para evitar sobreposição sobre a porção cranial do tórax.",
+      "Revise rotação e fase respiratória antes de comparar silhueta cardíaca, campos pulmonares ou simetria.",
+      "Para membros e coluna, inclua a articulação proximal e distal sempre que o objetivo for trauma ou avaliação do segmento inteiro.",
+    ],
+    sequence: ["Identificação e lateralidade", "Projeção e colimação", "Exposição e contraste", "Rotação", "Duas projeções quando indicadas", "Estruturas incluídas", "Artefatos e sobreposições"],
+    traps: ["Concluir assimetria sem descartar rotação.", "Interpretar tórax lateral com os membros sobrepostos.", "Localizar alteração em uma única projeção.", "Usar medidas ou comparações em imagem expiratória ou mal posicionada."],
+  },
+  {
     id: "interpretacao",
     title: "Método de interpretação",
     chapters: "Capítulos 5, 7, 14, 25 e 35",
@@ -44,8 +58,9 @@ export const thrallStudyGuides: ThrallStudyGuide[] = [
       "Lise geográfica, permeativa ou roída por traça representa graus crescentes de indefinição, não diagnósticos isolados.",
       "Reação periosteal lisa e contínua tende a ser menos agressiva; interrompida, amorfa ou espiculada merece maior atenção.",
       "Defina se a lesão é monostótica, poliostótica, articular, metafisária, diafisária ou epifisária.",
+      "Diferencie esclerose, aumento da radiopacidade medular, osteófito, entesófito e remodelamento do contorno ósseo antes de atribuir etiologia.",
     ],
-    sequence: ["Localização no osso", "Margens e zona de transição", "Lise", "Proliferação periosteal", "Cortical", "Matriz", "Tecidos moles", "Distribuição"],
+    sequence: ["Localização no osso", "Margens e zona de transição", "Lise", "Proliferação periosteal", "Cortical", "Medular e matriz", "Tecidos moles", "Distribuição"],
     traps: ["Tentar diferenciar neoplasia de infecção apenas pela radiografia.", "Ignorar idade e localização anatômica.", "Chamar osteólise discreta sem comparar projeções e estruturas adjacentes."],
   },
   {
@@ -58,9 +73,25 @@ export const thrallStudyGuides: ThrallStudyGuide[] = [
       "Informe desvio do fragmento distal em relação ao proximal, além de angulação, rotação e encurtamento.",
       "Em animais jovens, classifique o envolvimento fisário e procure lesões simultâneas.",
       "No acompanhamento, avalie ponte cortical, remodelamento, linha de fratura, estabilidade do implante e sinais de infecção.",
+      "Em fraturas fisárias, informe Salter-Harris quando reconhecível; tipo II é frequente em animais jovens e o tipo V pode ser sutil inicialmente.",
+      "Na consolidação secundária, reabsorção e reação periosteal tendem a preceder o calo; pontes e remodelamento devem ser julgados junto à estabilidade e ao tempo de evolução.",
     ],
     sequence: ["Osso e lado", "Terço", "Configuração", "Extensão", "Deslocamento", "Articulação", "Tecidos moles", "Implantes/calo"],
-    traps: ["Confundir sobreposição com linha de fratura.", "Não radiografar articulações proximal e distal.", "Interpretar calo exuberante sem considerar estabilidade mecânica."],
+    traps: ["Confundir sobreposição com linha de fratura.", "Não radiografar articulações proximal e distal.", "Interpretar calo exuberante sem considerar estabilidade mecânica.", "Classificar uma fratura fisária somente na projeção mais conveniente."],
+  },
+  {
+    id: "diferenciais",
+    title: "Raciocínio e diagnósticos diferenciais",
+    chapters: "UniRádio · Radiologia além dos sinais",
+    introduction: "A impressão diagnóstica deve refletir o grau de certeza da imagem. Quando o achado não é específico, descreva o padrão primeiro e ordene diferenciais com base na distribuição, espécie, idade, raça, histórico e sinais clínicos.",
+    essentials: [
+      "Não use o padrão radiográfico como diagnóstico final: ele organiza hipóteses, não substitui a integração clínica.",
+      "Liste poucos diferenciais relevantes e explique, quando útil, qual é o mais provável e por quê.",
+      "Separe achado, interpretação e recomendação: isso torna o laudo mais claro e reduz fechamento prematuro.",
+      "Indique o próximo exame quando ele muda a decisão: tomografia para extensão óssea, ressonância para neurotecidos, ultrassom para parênquima e amostragem para definição etiológica.",
+    ],
+    sequence: ["Descrever o sinal", "Definir compartimento", "Caracterizar distribuição", "Relacionar com paciente e histórico", "Ordenar diferenciais", "Indicar o próximo passo útil"],
+    traps: ["Citar diferenciais sem relação com o padrão ou o paciente.", "Transformar uma hipótese em certeza sem confirmação.", "Omitir diferencial em achado inespecífico.", "Recomendar exame complementar sem objetivo clínico claro."],
   },
   {
     id: "articulacoes",

@@ -40,6 +40,7 @@ test("keeps the report model unified and the Thrall context available", async ()
   assert.doesNotMatch(page, /value=\{description\}|value=\{impression\}|value=\{comment\}/);
   assert.match(page, /getThrallContext/);
   assert.match(page, /thrallStudyGuides/);
+  assert.match(page, /THRALL \+ UNIRÁDIO/);
   assert.match(page, /className="disclosure-button"/);
   assert.match(page, /aria-expanded=\{/);
   assert.match(page, /role="button" tabIndex=\{0\}/);
@@ -51,6 +52,8 @@ test("keeps the report model unified and the Thrall context available", async ()
   assert.doesNotMatch(page, /CASOS DO SEU ACERVO/);
   assert.doesNotMatch(page, /case-examples\//);
   assert.match(context, /Método de interpretação/);
+  assert.match(context, /Técnica, posicionamento e projeções/);
+  assert.match(context, /Raciocínio e diagnósticos diferenciais/);
   assert.match(context, /Lesões ósseas e agressividade/);
   assert.match(context, /Padrões pulmonares/);
   assert.match(context, /Leitura sistemática do abdômen/);
