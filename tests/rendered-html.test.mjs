@@ -35,6 +35,7 @@ test("keeps the report model unified and the Thrall context available", async ()
   ]);
 
   assert.match(page, /className="full-model-editor"/);
+  assert.match(page, /title\.localeCompare\(second\.title, "pt-BR", \{ sensitivity: "base" \}\)/);
   assert.match(page, /Relatório, impressões e comentários/);
   assert.doesNotMatch(page, /value=\{description\}|value=\{impression\}|value=\{comment\}/);
   assert.match(page, /getThrallContext/);

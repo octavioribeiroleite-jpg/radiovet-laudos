@@ -304,7 +304,7 @@ export default function Home() {
   const visible = useMemo(() => references.filter((item) => {
     const text = `${item.title} ${item.region} ${item.model}`.toLowerCase();
     return (region === "Todos" || item.region === region) && text.includes(search.toLowerCase());
-  }), [region, search]);
+  }).sort((first, second) => first.title.localeCompare(second.title, "pt-BR", { sensitivity: "base" })), [region, search]);
   const output = drafts.length ? drafts.map((draft) => draft.fullText.trim()).join("\n\n") : `RELATÓRIO RADIOGRÁFICO
 - [Adicione um modelo da biblioteca]
 
