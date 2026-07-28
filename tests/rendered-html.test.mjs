@@ -41,6 +41,8 @@ test("keeps the report model unified and the Thrall context available", async ()
   assert.match(page, /thrallStudyGuides/);
   assert.match(page, /className="disclosure-button"/);
   assert.match(page, /aria-expanded=\{/);
+  assert.match(page, /role="button" tabIndex=\{0\}/);
+  assert.match(page, /event\.key === "Enter" \|\| event\.key === " "/);
   assert.match(context, /Método de interpretação/);
   assert.match(context, /Lesões ósseas e agressividade/);
   assert.match(context, /Padrões pulmonares/);
