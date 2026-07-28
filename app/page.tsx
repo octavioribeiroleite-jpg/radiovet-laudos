@@ -279,15 +279,17 @@ COMENTÁRIOS
 - [Comentário]`;
   const openWriter = (item: Reference) => {
     const existing = drafts.find((draft) => draft.id === item.id);
+    setSaved(false);
     setActive(item); setFullText(existing?.fullText ?? fullModelText(item));
   };
   const saveDraft = () => {
     if (!active || !fullText.trim()) return;
     const draft = { id: active.id, title: active.title, region: active.region, fullText: fullText.trim() };
-    setDrafts((current) => current.some((item) => item.id === draft.id) ? current.map((item) => item.id === draft.id ? draft : item) : [...current, draft]);
+    const nextDrafts = drafts.some((item) => item.id === draft.id) ? drafts.map((item) => item.id === draft.id ? draft : item) : [...drafts, draft];
+    window.localStorage.setItem("radiovet-drafts", JSON.stringify(nextDrafts));
+    setDrafts(nextDrafts);
     setActive(null);
     setSaved(true);
-    window.setTimeout(() => setSaved(false), 2400);
   };
   const copy = async () => { await navigator.clipboard.writeText(output); setCopied(true); window.setTimeout(() => setCopied(false), 1800); };
 
