@@ -20,36 +20,9 @@ type Reference = {
   kind?: "pre-laudo" | "alteração";
 };
 type Draft = { id: string; title: string; region: string; fullText: string };
-type CasePreview = { radiograph: string; report: string };
-type CaseExample = { region: string; matches: RegExp; focus: string; url: string; year: 2025 | 2026; preview?: CasePreview };
 
 function BookLinks() {
   return <nav className="book-links" aria-label="Livros de consulta"><a href="https://drive.google.com/file/d/122caod-x9mungOKW22H1EuQtHo9N50Ws" target="_blank" rel="noopener noreferrer">Thrall <span>↗</span></a><a href="https://drive.google.com/file/d/1S1TdlfXlJa1QRKYf1JjDkS2Lgd1txFUt" target="_blank" rel="noopener noreferrer">Essencial <span>↗</span></a></nav>;
-}
-
-// Casos de 2025-2026 do acervo do usuário. As prévias foram recortadas para não exibir
-// dados de paciente; o PDF original continua privado no Drive.
-const caseExamples: CaseExample[] = [
-  { region: "Coluna", matches: /espondil|disco|lombossacra|cauda equina|osteofitose/i, focus: "Osteoartrose vertebral e instabilidade lombossacra", url: "https://drive.google.com/file/d/1NxMAvXTQ42IoHQJtgOl191E5AM3asBLb/view?usp=drivesdk", year: 2026, preview: { radiograph: "/case-examples/kid-radiografia-anonima.jpg", report: "/case-examples/kid-laudo-anonimo.jpg" } },
-  { region: "Membros", matches: /fratura|calo|consolidação|consolidacao|não união|nao uniao|má união|ma uniao|monteggia/i, focus: "Osteossíntese e consolidação de rádio e ulna", url: "https://drive.google.com/file/d/16Bnj2pYr-7exRM4jcs8Yh4IiklHC1Hpg/view?usp=drivesdk", year: 2026, preview: { radiograph: "/case-examples/minie-radiografia-anonima.jpg", report: "/case-examples/minie-laudo-anonimo.jpg" } },
-  { region: "Membros", matches: /patelar|patela/i, focus: "Luxação patelar medial", url: "https://drive.google.com/file/d/1Fsw6vb4tOScf1RERocj5PkD-Nq1VpwRf/view?usp=drivesdk", year: 2026 },
-  { region: "Membros", matches: /bicipital|tenossinovite|tendinopatia/i, focus: "Tendinopatia bicipital crônica", url: "https://drive.google.com/file/d/1M3qlA2cA7eP0T6IWbqvzV3TIbO_Y1Kel/view?usp=drivesdk", year: 2026 },
-  { region: "Coxal", matches: /displasia|subluxação|subluxacao|coxofemoral/i, focus: "Displasia coxofemoral com subluxação bilateral", url: "https://drive.google.com/file/d/1s_Y7bINCyq0uERn907cNhMpPl68UIInl/view?usp=drivesdk", year: 2026, preview: { radiograph: "/case-examples/malu-radiografia-anonima.jpg", report: "/case-examples/malu-laudo-anonimo.jpg" } },
-  { region: "Coxal", matches: /luxação|luxacao/i, focus: "Luxação coxofemoral", url: "https://drive.google.com/file/d/16Wbmy09FK836-5FkSyl97BGihHxgwrSo/view?usp=drivesdk", year: 2026 },
-  { region: "Tórax", matches: /broncopatia|bronquite|asma|bronquiectasia|pneumonia|broncopneumonia|aspirativa|consolidação|consolidacao|hepatização|hepatizacao|edema|atelectasia|enfisema|contusão|contusao/i, focus: "Broncopneumopatia inflamatória", url: "https://drive.google.com/file/d/1vzi-zQqdKlMWrt0oDtt-6R9FL9-ys8UY/view?usp=drivesdk", year: 2026, preview: { radiograph: "/case-examples/faisca-radiografia-anonima.jpg", report: "/case-examples/faisca-laudo-anonimo.jpg" } },
-  { region: "Tórax", matches: /cardiomegalia|átrio|atrio|ventrículo|ventriculo|cardiopatia|microcardia|pericárdica|pericardica/i, focus: "Cardiomegalia", url: "https://drive.google.com/file/d/1aaDLmWDI6lH_f0i2hGcu9Pm-8K4VF0qt/view?usp=drivesdk", year: 2026 },
-  { region: "Tórax", matches: /megaesôfago|megaesofago|esôfago|esofago|anel vascular|hérnia de hiato|hernia de hiato/i, focus: "Megaesôfago e broncopneumopatia crônica", url: "https://drive.google.com/file/d/16Sz0izuvfo4uUOsE6iTU3cAlAzPdiBRy/view?usp=drivesdk", year: 2026 },
-  { region: "Tórax", matches: /metástase|metastase|neoplásico|neoplasico|nódulo|nodulo/i, focus: "Pneumonia grave com diferencial de metástase", url: "https://drive.google.com/file/d/1MNGcT-AD9KltQq33gYqcdts9AggQp8aw/view?usp=drivesdk", year: 2026 },
-  { region: "Abdômen", matches: /nefro|uretero|urolito|cisto|bexiga|cistite|uretral/i, focus: "Nefrolitíase unilateral", url: "https://drive.google.com/file/d/1RYXf9ZMXKdN0f-OpL5mlKbi3I_1xZOgt/view?usp=drivesdk", year: 2026, preview: { radiograph: "/case-examples/lupy-radiografia-anonima.jpg", report: "/case-examples/lupy-laudo-anonimo.jpg" } },
-  { region: "Abdômen", matches: /fecaloma|megacólon|megacolon|obstrutivo|intestinal|gástric|gastric|corpo estranho/i, focus: "Fecaloma e retenção urinária", url: "https://drive.google.com/file/d/1ix2u04hJA8xyIq7L47xORrBFf4U6MZVx/view?usp=drivesdk", year: 2026 },
-];
-const archiveIndexUrl = "https://docs.google.com/spreadsheets/d/1pcS24qWrTYMMmAkiagfPQtDUrCkbp0kEbMUP_9tJK4M";
-
-function examplesFor(item: Reference) {
-  const allowed = caseExamples.filter((example) => example.year === 2025 || example.year === 2026);
-  const direct = allowed.filter((example) => example.region === item.region && example.matches.test(item.title));
-  const related = direct.length ? direct : allowed.filter((example) => example.region === item.region);
-  return related.slice(0, 2).map((example) => ({ ...example, direct: direct.includes(example) }));
 }
 
 const cranioPreLaudo = `- Calota craniana sem alterações radiográficas dignas de nota;\n- Cavidades nasais, seios frontais e osso vômer com adequada visibilização do padrão trabecular de conchas nasais e etmoturbinados;\n- Corpos mandibulares e ramos maxilares sem evidências radiográficas de alterações;\n- Arcos zigomáticos preservados;\n- Articulações temporomandibulares congruentes e coaptadas;\n- Bulas timpânicas e condutos auditivos preservados;\n- Dentes e alvéolos dentários habituais;\n- Demais estruturas passíveis de avaliação sem evidências radiográficas sugestivas de alterações pelas incidências realizadas.`;
@@ -314,7 +287,6 @@ IMPRESSÕES DIAGNÓSTICAS
 COMENTÁRIOS
 - [Comentário]`;
   const activeContext = active ? getThrallContext(active.title, active.region) : null;
-  const activeExamples = active ? examplesFor(active) : [];
   const openWriter = (item: Reference) => {
     const existing = drafts.find((draft) => draft.id === item.id);
     setSaved(false);
@@ -352,7 +324,6 @@ COMENTÁRIOS
         </article>
         <article className="recognition-card"><p className="section-label">COMO ESSA ALTERAÇÃO APARECE</p><h2>O que procurar na imagem</h2><ul>{active.appearance.map((item) => <li key={item}>{item}</li>)}</ul></article>
         {active.visual && <figure className="visual-reference"><img src={active.visual.src} alt={active.visual.alt} /><figcaption><b>{active.visual.caption}</b><span>{active.visual.source}</span></figcaption></figure>}
-        <article className="case-examples"><div><p className="section-label">CASOS DO SEU ACERVO · 2025–2026</p><h2>Compare com um caso real</h2><p>Quando houver prévia, a radiografia e a redação original aparecem abaixo já anonimizadas. O PDF completo continua privado no seu Drive.</p></div><div className="case-example-list">{activeExamples.length ? activeExamples.map((example) => <section className="case-example" key={example.url}><a href={example.url} target="_blank" rel="noopener noreferrer"><span>{example.direct ? "CASO DO MESMO TEMA" : "CASO CORRELATO"} · {example.year}</span><b>{example.focus}</b><small>Abrir PDF privado completo ↗</small></a>{example.preview ? <div className="case-preview-grid"><figure className="case-preview radiograph-preview"><img src={example.preview.radiograph} alt="Radiografia de caso do acervo, sem identificação do paciente."/><figcaption>Radiografia anonimizada</figcaption></figure><figure className="case-preview report-preview"><img src={example.preview.report} alt="Trecho anonimizado da redação original do relatório radiográfico."/><figcaption>Redação original do laudo</figcaption></figure></div> : null}</section>) : <a href={archiveIndexUrl} target="_blank" rel="noopener noreferrer"><span>ACERVO EM EXPANSÃO</span><b>Consultar o índice dos casos radiográficos</b><small>Localizar um caso desta região ↗</small></a>}</div></article>
         {activeContext && <article className="thrall-context-card"><div className="thrall-context-head"><div><p className="section-label">CONTEXTO THRALL</p><h2>{activeContext.chapterTitle}</h2></div><span>{activeContext.chapter}</span></div><p className="thrall-summary">{activeContext.summary}</p><div className="thrall-explain"><div><p className="section-label">POR QUE APARECE ASSIM</p><p>{activeContext.mechanism}</p></div><div><p className="section-label">QUANDO OUTRO EXAME AJUDA</p><p>{activeContext.nextStep}</p></div></div><button className="disclosure-button" type="button" aria-expanded={confirmOpen} aria-controls="context-confirm-list" onClick={() => setConfirmOpen((current) => !current)}>O que confirmar antes de concluir<span>{confirmOpen ? "−" : "+"}</span></button>{confirmOpen && <ul className="context-disclosure-panel" id="context-confirm-list">{activeContext.confirm.map((item) => <li key={item}>{item}</li>)}</ul>}<button className="disclosure-button" type="button" aria-expanded={pitfallsOpen} aria-controls="context-pitfalls-list" onClick={() => setPitfallsOpen((current) => !current)}>Armadilhas e limitações<span>{pitfallsOpen ? "−" : "+"}</span></button>{pitfallsOpen && <ul className="context-disclosure-panel" id="context-pitfalls-list">{activeContext.pitfalls.map((item) => <li key={item}>{item}</li>)}</ul>}<p className="context-source">{activeContext.evidence}</p></article>}
         <article className="consult-card"><div><p className="section-label">ROTEIRO DE LEITURA</p><ul>{active.readingGuide.map((item) => <li key={item}>{item}</li>)}</ul></div><div><p className="section-label">DIFERENCIAIS E CUIDADOS</p><ul>{active.differentials.length ? active.differentials.map((item) => <li key={item}>{item}</li>) : <li>Não se aplica ao modelo de normalidade.</li>}</ul></div><p className="source-line">Fonte de consulta: {active.source}</p></article>
       </section>
