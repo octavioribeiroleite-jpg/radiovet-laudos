@@ -47,6 +47,13 @@ test("keeps the report model unified and the Thrall context available", async ()
   assert.match(page, /https:\/\/drive\.google\.com\/file\/d\/122caod-x9mungOKW22H1EuQtHo9N50Ws/);
   assert.match(page, /https:\/\/drive\.google\.com\/file\/d\/1S1TdlfXlJa1QRKYf1JjDkS2Lgd1txFUt/);
   assert.match(page, /target="_blank" rel="noopener noreferrer"/);
+  assert.match(page, /const caseExamples: CaseExample\[\]/);
+  assert.match(page, /CASOS DO SEU ACERVO/);
+  assert.match(page, /Compare com uma radiografia real/);
+  assert.match(page, /Os arquivos continuam privados no seu Drive/);
+  assert.match(page, /https:\/\/drive\.google\.com\/file\/d\/1Fsw6vb4tOScf1RERocj5PkD-Nq1VpwRf/);
+  assert.match(page, /https:\/\/drive\.google\.com\/file\/d\/1RYXf9ZMXKdN0f-OpL5mlKbi3I_1xZOgt/);
+  assert.match(page, /https:\/\/docs\.google\.com\/spreadsheets\/d\/1pcS24qWrTYMMmAkiagfPQtDUrCkbp0kEbMUP_9tJK4M/);
   assert.match(context, /Método de interpretação/);
   assert.match(context, /Lesões ósseas e agressividade/);
   assert.match(context, /Padrões pulmonares/);
