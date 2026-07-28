@@ -21,6 +21,10 @@ type Reference = {
 };
 type Draft = { id: string; title: string; region: string; fullText: string };
 
+function BookLinks() {
+  return <nav className="book-links" aria-label="Livros de consulta"><a href="https://drive.google.com/file/d/122caod-x9mungOKW22H1EuQtHo9N50Ws" target="_blank" rel="noopener noreferrer">Thrall <span>↗</span></a><a href="https://drive.google.com/file/d/1S1TdlfXlJa1QRKYf1JjDkS2Lgd1txFUt" target="_blank" rel="noopener noreferrer">Essencial <span>↗</span></a></nav>;
+}
+
 const cranioPreLaudo = `- Calota craniana sem alterações radiográficas dignas de nota;\n- Cavidades nasais, seios frontais e osso vômer com adequada visibilização do padrão trabecular de conchas nasais e etmoturbinados;\n- Corpos mandibulares e ramos maxilares sem evidências radiográficas de alterações;\n- Arcos zigomáticos preservados;\n- Articulações temporomandibulares congruentes e coaptadas;\n- Bulas timpânicas e condutos auditivos preservados;\n- Dentes e alvéolos dentários habituais;\n- Demais estruturas passíveis de avaliação sem evidências radiográficas sugestivas de alterações pelas incidências realizadas.`;
 
 const regionGuide: Record<string, string[]> = {
@@ -302,7 +306,7 @@ COMENTÁRIOS
   const copy = async () => { await navigator.clipboard.writeText(output); setCopied(true); window.setTimeout(() => setCopied(false), 1800); };
 
   if (guideOpen) return <main className="thrall-guide-page">
-    <header><div className="brand"><span className="brand-mark">R</span><span>RADIO<span>VET</span></span></div><p>Guia de interpretação</p><button className="back" type="button" onClick={() => setGuideOpen(false)}>← Voltar à biblioteca</button></header>
+    <header><div className="brand"><span className="brand-mark">R</span><span>RADIO<span>VET</span></span></div><p>Guia de interpretação</p><BookLinks/><button className="back" type="button" onClick={() => setGuideOpen(false)}>← Voltar à biblioteca</button></header>
     <section className="guide-hero"><p className="eyebrow">THRALL · 6ª EDIÇÃO · SÍNTESE APLICADA</p><h1>Entenda o sinal antes de concluir.</h1><p>Um roteiro prático para transformar a observação radiográfica em descrição, impressão e recomendação. O conteúdo foi organizado para consulta rápida e não substitui a leitura integral da obra.</p><div className="guide-stats"><span><b>{references.length}</b> fichas relacionadas</span><span><b>{thrallStudyGuides.length}</b> módulos de leitura</span><span><b>45</b> capítulos revisados</span></div></section>
     <section className="guide-shell">
       <aside className="guide-index"><p className="section-label">NESTE GUIA</p>{thrallStudyGuides.map((guide, index) => <a href={`#${guide.id}`} key={guide.id}><span>{String(index + 1).padStart(2, "0")}</span>{guide.title}</a>)}</aside>
@@ -311,7 +315,7 @@ COMENTÁRIOS
   </main>;
 
   if (active) return <main className="writing-mode">
-    <header><div className="brand"><span className="brand-mark">R</span><span>RADIO<span>VET</span></span></div><p>Ficha de consulta</p><button className="back" type="button" onClick={() => setActive(null)}>← Voltar à biblioteca</button></header>
+    <header><div className="brand"><span className="brand-mark">R</span><span>RADIO<span>VET</span></span></div><p>Ficha de consulta</p><BookLinks/><button className="back" type="button" onClick={() => setActive(null)}>← Voltar à biblioteca</button></header>
     <section className="writing-head"><p className="eyebrow">{active.kind === "pre-laudo" ? "MODELO PRONTO" : "ALTERAÇÃO RADIOGRÁFICA"} · {active.region.toUpperCase()}</p><h1>{active.title}</h1><p>Veja como a alteração aparece, consulte uma descrição completa e leve uma impressão diagnóstica direta para o seu rascunho.</p></section>
     <section className="clinical-grid">
       <section className="clinical-reference">
@@ -328,7 +332,7 @@ COMENTÁRIOS
   </main>;
 
   return <main>
-    <header><div className="brand"><span className="brand-mark">R</span><span>RADIO<span>VET</span></span></div><p>Biblioteca de aprendizado</p><span className="header-note">Leia um modelo, entenda o sinal e adapte o texto.</span><button className="header-guide-button" type="button" onClick={() => setGuideOpen(true)}>Guia Thrall</button></header>
+    <header><div className="brand"><span className="brand-mark">R</span><span>RADIO<span>VET</span></span></div><p>Biblioteca de aprendizado</p><span className="header-note">Leia um modelo, entenda o sinal e adapte o texto.</span><BookLinks/><button className="header-guide-button" type="button" onClick={() => setGuideOpen(true)}>Guia Thrall</button></header>
     {saved && <div className="save-notice" role="status">Modelo salvo no seu rascunho.</div>}
     <section className="intro"><p className="eyebrow">218 FICHAS + CONTEXTO THRALL</p><h1>Reconheça a alteração.<br/><em>Entenda por que aparece.</em></h1><p>Cada ficha reúne descrição completa, impressão direta, sinais para procurar, mecanismo radiográfico, limitações, armadilhas e indicação de exames complementares.</p><button className="intro-guide-button" type="button" onClick={() => setGuideOpen(true)}>Abrir guia de interpretação <span>→</span></button></section>
     <section className="learning-layout">

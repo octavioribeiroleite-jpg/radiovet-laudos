@@ -43,6 +43,10 @@ test("keeps the report model unified and the Thrall context available", async ()
   assert.match(page, /aria-expanded=\{/);
   assert.match(page, /role="button" tabIndex=\{0\}/);
   assert.match(page, /event\.key === "Enter" \|\| event\.key === " "/);
+  assert.match(page, /aria-label="Livros de consulta"/);
+  assert.match(page, /https:\/\/drive\.google\.com\/file\/d\/122caod-x9mungOKW22H1EuQtHo9N50Ws/);
+  assert.match(page, /https:\/\/drive\.google\.com\/file\/d\/1S1TdlfXlJa1QRKYf1JjDkS2Lgd1txFUt/);
+  assert.match(page, /target="_blank" rel="noopener noreferrer"/);
   assert.match(context, /Método de interpretação/);
   assert.match(context, /Lesões ósseas e agressividade/);
   assert.match(context, /Padrões pulmonares/);
